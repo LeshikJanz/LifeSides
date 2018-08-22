@@ -1,0 +1,35 @@
+{
+  "name": "LifeSides",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "client": "cd ./client && npm run-script dev",
+    "start": "cd ./client && npm run-script dev",
+    "build": "cd ./client && npm run-script build",
+    "server": "nodemon server/server.js --watch server",
+    "postinstall": "cd ./client && yarn",
+    "clear": "rm -rf node_modules ./client/node_modules"
+  },
+  "dependencies": {
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "helmet": "^3.10.0",
+    "loopback": "^3.19.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-component-explorer": "^6.0.0",
+    "nodemon": "^1.18.3",
+    "serve-favicon": "^2.0.1",
+    "strong-error-handler": "^3.0.0"
+  },
+  "devDependencies": {
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "license": "UNLICENSED",
+  "description": "LifeSides"
+}
