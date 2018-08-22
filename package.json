@@ -11,6 +11,7 @@
     "build": "cd ./client && npm run-script build",
     "server": "nodemon server/server.js --watch server",
     "postinstall": "cd ./client && yarn",
+    "flow": "cd ./client && npm run-script flow",
     "clear": "rm -rf node_modules ./client/node_modules"
   },
   "dependencies": {
