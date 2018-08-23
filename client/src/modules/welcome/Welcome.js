@@ -4,7 +4,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { init } from './actions'
 
-class Welcome extends React.Component {
+type Props = {
+  onInit: () => void,
+}
+
+class Welcome extends React.Component<Props> {
   componentDidMount () {
     this.props.onInit()
     console.log("here")

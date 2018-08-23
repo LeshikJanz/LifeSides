@@ -1,6 +1,4 @@
-// @flow
-
-export function createAction (type: string, payloadMapper) {
+export function createAction (type: string, payloadMapper: any) {
   function actionCreator (...args) {
     return {
       type,
