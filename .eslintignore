@@ -1,0 +1,7 @@
+/node_modules/
+/lib/flow-typed/
+**/*.js
+!/config/webpack/**/*.js
+!/apps/azartplay_new/**/*.js
+!**/*.es6.js
+!jest.config.js
