@@ -1,9 +1,9 @@
-.video-react-fluid {
+.video-react.video-react-fluid {
   pointer-events: none;
   filter: blur(2.5px);
   height: 100%;
 
-  .video-react {
+  video.video-react-video {
     width: auto;
   }
 }
