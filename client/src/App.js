@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import './App.scss'
 import Welcome from './modules/welcome/Welcome'
 
 class App extends Component {

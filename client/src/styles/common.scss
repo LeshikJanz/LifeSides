@@ -1,0 +1,57 @@
+@import "../../node_modules/video-react/styles/scss/video-react";
+@import "./fonts.scss";
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body, html, span, h1, h2, h3, h4, h5, h6, div, input, textarea, button {
+  font-family: Helvetica-Bold;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 1.4;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+button.dark-red {
+  color: #fff;
+  background-color: #8B2A2A;
+  border: 3px solid #8B2A2A;
+  transition: all .1s;
+
+  &:hover {
+    color: #8B2A2A;
+    background-color: #fff;
+  }
+}
+
+button.green {
+  color: #fff;
+  background-color: #5C931B;
+  border: 3px solid #5C931B;
+  transition: all .1s;
+
+  &:hover {
+    color: #5C931B;
+    background-color: #fff;
+  }
+}
+
+button.big {
+  font-family: Lato;
+  width: 260px;
+  height: 60px;
+  letter-spacing: 1px;
+  font-size: 24px;
+  border-radius: 50px 50px;
+}

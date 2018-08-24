@@ -1,0 +1,25 @@
+.main-label-wrapper {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.main-label {
+  margin: 20% auto 0;
+  font-weight: bold;
+  font-style: oblique;
+  text-align: center;
+  max-width: 750px;
+  color: #d4c71b;
+  -webkit-text-stroke: 1px #f5a623;
+}
+
+.main-actions {
+  text-align: center;
+  margin-top: 100px;
+
+  button {
+    margin: 0 35px;
+  }
+}

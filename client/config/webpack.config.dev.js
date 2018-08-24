@@ -82,6 +82,7 @@ module.exports = {
     // for React Native Web.
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
+      assets: path.resolve(__dirname, '../src/assets'),
       modules: path.resolve(__dirname, '../src/modules'),
       components: path.resolve(__dirname, '../src/components'),
       utils: path.resolve(__dirname, '../src/utils'),
