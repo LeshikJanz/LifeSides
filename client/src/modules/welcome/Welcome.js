@@ -7,6 +7,7 @@ import './styles/styles.scss'
 import './styles/video.scss'
 import { Player } from 'video-react'
 import coffeeShop from 'assets/videos/CoffeeShoptablet.webm'
+import RegistrationPopup from "modules/registration/RegistrationPopup"
 
 type Props = {
   onInit: () => void,
@@ -15,9 +16,12 @@ type Props = {
 class Welcome extends React.Component<Props> {
   componentDidMount() {
     this.props.onInit()
+    RegistrationPopup.show()
   }
 
   render() {
+    console.log("coffeeShop")
+    console.log(coffeeShop)
     return (
       <Fragment>
         <div className="main-label-wrapper">
@@ -34,7 +38,7 @@ class Welcome extends React.Component<Props> {
           </div>
         </div>
         <Player autoPlay muted loop disableCompletely>
-          <source src={coffeeShop} type="video/mp4" />
+          <source src={coffeeShop} type="video/webm" />
         </Player>
       </Fragment>
     )

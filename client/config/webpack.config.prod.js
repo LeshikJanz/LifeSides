@@ -91,10 +91,11 @@ module.exports = {
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
       assets: path.resolve(__dirname, '../src/assets'),
+      api: path.resolve('src/api'),
+      hocs: path.resolve(__dirname, '../src/hocs'),
       modules: path.resolve('src/modules'),
       components: path.resolve('src/components'),
       utils: path.resolve('src/utils'),
-      api: path.resolve('src/api'),
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
