@@ -6,7 +6,6 @@
     background: rgba(0, 0, 0, 0.6);
     z-index: 9;
   }
-
   &-notification {
     position: absolute;
     display: flex;
@@ -17,7 +16,6 @@
       z-index: 10;
     }
   }
-
   &-close {
     position: absolute;
     cursor: pointer;
@@ -32,11 +30,9 @@
       opacity: 1;
     }
   }
-
   &-container {
     padding: 15px;
   }
-
   &-header {
     margin-top: 20px;
     text-align: center;
@@ -44,6 +40,9 @@
       font-size: 28px;
       font-weight: bold;
     }
+  }
+  &-body {
+    margin: 0 90px;
   }
 }
 
