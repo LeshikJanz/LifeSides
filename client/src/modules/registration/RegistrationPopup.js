@@ -1,20 +1,25 @@
 // @flow
 
+import type { Popup } from "types/popup"
 import React from 'react'
 import popup from 'hocs/popup'
+import "./styles.scss"
 
-type Props = {
-  hide: () => void,
-}
-
+type Props = {} & Popup
 
 class RegistrationPopup extends React.Component<Props> {
-  componentDidMount() {
-    setTimeout(this.props.hide, 3000)
-  }
-
   render() {
-    return (<h1>Registration Popup</h1>)
+    return (
+      <div className="registration-wrapper popup-container">
+        <div className="popup-close" onClick={this.props.hide} />
+        <div className="popup-header">
+          <div className="popup-header-title dark-red">
+            Регистрация
+          </div>
+          <hr className="popup-header-line" />
+        </div>
+      </div>
+    )
   }
 }
 

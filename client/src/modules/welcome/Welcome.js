@@ -8,6 +8,7 @@ import './styles/video.scss'
 import { Player } from 'video-react'
 import coffeeShop from 'assets/videos/CoffeeShoptablet.webm'
 import RegistrationPopup from "modules/registration/RegistrationPopup"
+import AuthPopup from "modules/auth/AuthPopup"
 
 type Props = {
   onInit: () => void,
@@ -16,7 +17,6 @@ type Props = {
 class Welcome extends React.Component<Props> {
   componentDidMount() {
     this.props.onInit()
-    RegistrationPopup.show()
   }
 
   render() {
@@ -29,10 +29,10 @@ class Welcome extends React.Component<Props> {
             Добро пожаловать в Life Sides! Проращивайте привычки и становитесь лучшей версией себя!
           </h1>
           <div className="main-actions">
-            <button className="dark-red big">
+            <button className="dark-red big" onClick={RegistrationPopup.show}>
               Регистрация
             </button>
-            <button className="green big">
+            <button className="green big" onClick={AuthPopup.show}>
               Авторизация
             </button>
           </div>

@@ -84,9 +84,10 @@ module.exports = {
     alias: {
       assets: path.resolve(__dirname, '../src/assets'),
       api: path.resolve(__dirname, '../src/api'),
-      hocs: path.resolve(__dirname, '../src/hocs'),
-      modules: path.resolve(__dirname, '../src/modules'),
       components: path.resolve(__dirname, '../src/components'),
+      modules: path.resolve(__dirname, '../src/modules'),
+      hocs: path.resolve(__dirname, '../src/hocs'),
+      types: path.resolve(__dirname, '../src/types'),
       utils: path.resolve(__dirname, '../src/utils'),
     },
     plugins: [
