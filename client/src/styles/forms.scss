@@ -15,3 +15,10 @@
     padding-left: 10px;
   }
 }
+
+.inline {
+  display: flex;
+  > * {
+    margin-right: 30px;
+  }
+}
