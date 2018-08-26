@@ -14,6 +14,18 @@
     max-width: 400px;
     padding-left: 10px;
   }
+  &.error {
+    title {
+      color: red;
+    }
+    input {
+      border-color: red;
+    }
+  }
+  &-error {
+    font-weight: 100;
+    color: red;
+  }
 }
 
 .inline {

@@ -13,6 +13,11 @@ button.dark-red {
   &-empty {
     background-color: white;
     color: #8B2A2A;
+
+    &:hover {
+      background-color: #8B2A2A;
+      color: #fff;
+    }
   }
 
   &:hover {
@@ -41,6 +46,17 @@ button.big {
   border-radius: 50px 50px;
 }
 
+button:disabled, button:disabled:hover {
+  cursor: not-allowed;
+  background-color: rgba(155, 155, 155, 0.27);
+  border: solid 2px #9b9b9b;
+  color: #9b9b9b;
+}
+
 .form-actions {
-  
+  margin: 30px 0 20px;
+  text-align: right;
+  > *:last-child {
+    margin-left: 35px;
+  }
 }

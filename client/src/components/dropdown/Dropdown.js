@@ -1,9 +1,8 @@
 // @flow
+import React from 'react'
 import type { DropdownItem } from 'types/common'
-import "./styles.scss"
-import styled from "styled-components"
-
-import React from "react"
+import './styles.scss'
+import styled from 'styled-components'
 
 type Props = {
   name: string,
@@ -12,7 +11,6 @@ type Props = {
   placeholder?: string,
   tabIndex?: number,
   width?: number,
-  height?: number,
 }
 
 type State = {
@@ -21,10 +19,10 @@ type State = {
 
 const Wrapper = styled.div`
   width: ${({ width }) => width ? width + "px" : "auto"};
-  height: ${({ height }) => height ? height + "px" : "auto"};
+  height: 40px;
 `
 
-class Dropdown extends React.Component<Props> {
+class Dropdown extends React.Component<Props, State> {
   dropdownRef: HTMLDivElement
 
   state = {
@@ -32,7 +30,7 @@ class Dropdown extends React.Component<Props> {
   }
 
   componentDidMount() {
-    document.addEventListener("click", (e) => {
+    document.addEventListener('click', (e) => {
       if (!this.dropdownRef.contains(e.target)) {
         this.handleClose()
       }
@@ -52,14 +50,13 @@ class Dropdown extends React.Component<Props> {
   }
 
   render() {
-    const { items, placeholder, tabIndex, width, height, activeItem, onChange } = this.props
+    const { items, placeholder, tabIndex, width, activeItem } = this.props
     const { isOpen } = this.state
     return (
       <Wrapper
         innerRef={ref => (this.dropdownRef = ref)}
         width={width}
-        height={height}
-        className={`dropdown-wrapper ${isOpen ? "active" : ""}`}
+        className={`dropdown-wrapper ${isOpen ? 'active' : ''}`}
       >
         <input
           type="text"

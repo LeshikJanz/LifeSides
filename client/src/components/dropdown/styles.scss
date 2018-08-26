@@ -17,15 +17,17 @@
   ul {
     display: none;
     width: calc(100% + 15px);
-    max-height: 180px;
+    max-height: 200px;
     overflow: auto;
     padding: 0;
     margin: 0;
+    border: 1px solid lightgray;
 
     li {
+      font-size: 14px;
       text-align: center;
       padding-top: 10px;
-      height: 20px;
+      height: 18px;
       background-color: #fff;
       list-style-type: none;
       cursor: pointer;
