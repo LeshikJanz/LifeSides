@@ -3,15 +3,15 @@
 import React from 'react'
 
 type Props = {
-  name: string,
-  title: string,
-  type: string,
-  value: string,
-  placeholder: string,
-  onChange: (e: { target: any } & Event) => void,
-  required: ?boolean,
-  errorText: ?string,
-  isError: ?boolean,
+  name?: string,
+  title?: string,
+  type?: string,
+  value?: string,
+  placeholder?: string,
+  onChange?: (e: { target: any } & Event) => void,
+  required?: boolean,
+  errorText?: string,
+  isError?: boolean,
 }
 
 const Field = ({ name, type = "text", title, value, onChange, placeholder, errorText, isError, required }: Props) => (

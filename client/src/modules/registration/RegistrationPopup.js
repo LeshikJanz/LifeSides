@@ -1,5 +1,3 @@
-// @flow
-
 import type { Popup } from "types/popup"
 import type { DropdownItem } from 'types/common'
 import React from 'react'
@@ -12,8 +10,6 @@ import { HOURS, MINUTES } from './constants'
 import { isPasswordsSame } from './utils'
 import SuccessfulRegistrationPopup from './SuccessfulRegistrationPopup'
 
-type Props = {} & Popup
-
 type State = {
   notificationHour: ?DropdownItem,
   notificationMinute: ?DropdownItem,
@@ -22,8 +18,8 @@ type State = {
   error: string,
 }
 
-class RegistrationPopup extends React.Component<Props, State> {
-  formRef: HTMLFormElement
+class RegistrationPopup extends React.Component<Popup, State> {
+  formRef: any
 
   state = {
     notificationHour: null,
@@ -33,17 +29,17 @@ class RegistrationPopup extends React.Component<Props, State> {
     error: "",
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.formRef.addEventListener("blur", this.formValidation, true)
     document.addEventListener("keyup", this.checkIfFieldBecomeValid, true)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.formRef.removeEventListener("blur", this.formValidation, true)
     document.removeEventListener("keyup", this.checkIfFieldBecomeValid, true)
   }
 
-  handleSubmit = (e: { target: HTMLFormElement } & Event) => {
+  handleSubmit = (e: { target: any } & Event) => {
     e.preventDefault()
     this.setState({ error: "" })
     const { email, username, password } = e.target.elements
@@ -89,7 +85,6 @@ class RegistrationPopup extends React.Component<Props, State> {
       if (elem.checkValidity()) {
         return true
       }
-      // Check for dirty
       if (elem.value && elem.name !== document.activeElement.name) {
         nonValidFieldNames[elem.name] = true
       }
@@ -114,7 +109,7 @@ class RegistrationPopup extends React.Component<Props, State> {
     }
   }
 
-  render () {
+  render() {
     const { hide } = this.props
     const {
       notificationHour, notificationMinute,

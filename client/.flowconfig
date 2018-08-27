@@ -7,5 +7,19 @@
 [lints]
 
 [options]
+module.name_mapper='^assets' ->'<PROJECT_ROOT>/src/assets'
+module.name_mapper='^api' ->'<PROJECT_ROOT>/src/api'
+module.name_mapper='^components' ->'<PROJECT_ROOT>/src/components'
+module.name_mapper='^modules' ->'<PROJECT_ROOT>/src/modules'
+module.name_mapper='^hocs' ->'<PROJECT_ROOT>/src/hocs'
+module.name_mapper='^types' ->'<PROJECT_ROOT>/src/types'
+module.name_mapper='^utils' ->'<PROJECT_ROOT>/src/utils'
+
+module.file_ext=.js
+module.file_ext=.json
+module.file_ext=.jsx
+module.file_ext=.css
+module.file_ext=.scss
+
 
 [strict]

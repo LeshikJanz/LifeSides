@@ -1,5 +1,6 @@
 // @flow
 import { request } from './base'
+import type { Account } from 'types/Account'
 
 export default {
   createAccount (account: Account) {

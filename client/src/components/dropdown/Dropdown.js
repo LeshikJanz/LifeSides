@@ -7,10 +7,11 @@ import styled from 'styled-components'
 type Props = {
   name: string,
   items: DropdownItem[],
-  activeItem?: DropdownItem,
+  activeItem: ?DropdownItem,
   placeholder?: string,
-  tabIndex?: number,
-  width?: number,
+  onChange: (name: string, item: DropdownItem) => void,
+  tabIndex?: string,
+  width?: string,
 }
 
 type State = {
@@ -29,21 +30,21 @@ class Dropdown extends React.Component<Props, State> {
     isOpen: false,
   }
 
-  componentDidMount () {
+  componentDidMount() {
     document.addEventListener('click', this.handleClick)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     document.removeEventListener('click', this.handleClick)
   }
 
-  handleClick = (e) => {
+  handleClick = (e: { target: any } & Event) => {
     if (!this.dropdownRef.contains(e.target)) {
       this.handleClose()
     }
   }
 
-  handleDropdown = (e) =>
+  handleDropdown = () =>
     this.setState(prevState => ({ isOpen: !prevState.isOpen }))
 
   handleClose = () => this.setState({ isOpen: false })
@@ -55,7 +56,7 @@ class Dropdown extends React.Component<Props, State> {
     }
   }
 
-  render () {
+  render() {
     const { items, placeholder, tabIndex, width, activeItem } = this.props
     const { isOpen } = this.state
     return (

@@ -19,7 +19,7 @@ class AuthPopup extends React.Component<Props, State> {
     error: "",
   }
 
-  handleSubmit = (e: { target: HTMLFormElement } & Event) => {
+  handleSubmit = (e: { target: any } & Event) => {
     e.preventDefault()
     const { email, password } = e.target.elements
     api.auth({ email: email.value, password: password.value })

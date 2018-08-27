@@ -1,6 +1,6 @@
 // @flow
 
 export type Popup = {
-  hide: () => void,
+  hide: () => Promise<any>,
   isCloseOnOverlayForbidden: boolean,
 }

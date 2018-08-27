@@ -213,7 +213,7 @@ binary-extensions@^1.0.0:
 
 bl@^1.2.1:
   version "1.2.2"
-  resolved "https://verdaccio.task4work.info/bl/-/bl-1.2.2.tgz#a160911717103c07410cef63ef51b397c025af9c"
+  resolved "https://registry.yarnpkg.com/bl/-/bl-1.2.2.tgz#a160911717103c07410cef63ef51b397c025af9c"
   dependencies:
     readable-stream "^2.3.5"
     safe-buffer "^5.1.1"
@@ -309,7 +309,7 @@ braces@^2.3.0, braces@^2.3.1:
 
 bson@~1.0.4:
   version "1.0.9"
-  resolved "https://verdaccio.task4work.info/bson/-/bson-1.0.9.tgz#12319f8323b1254739b7c6bef8d3e89ae05a2f57"
+  resolved "https://registry.yarnpkg.com/bson/-/bson-1.0.9.tgz#12319f8323b1254739b7c6bef8d3e89ae05a2f57"
 
 btoa@1.1.2:
   version "1.1.2"
@@ -317,7 +317,7 @@ btoa@1.1.2:
 
 buffer-shims@~1.0.0:
   version "1.0.0"
-  resolved "https://verdaccio.task4work.info/buffer-shims/-/buffer-shims-1.0.0.tgz#9978ce317388c649ad8793028c3477ef044a8b51"
+  resolved "https://registry.yarnpkg.com/buffer-shims/-/buffer-shims-1.0.0.tgz#9978ce317388c649ad8793028c3477ef044a8b51"
 
 buffer@^5.1.0:
   version "5.2.0"
@@ -742,7 +742,7 @@ entities@^1.1.1, entities@~1.1.1:
 
 es6-promise@3.2.1:
   version "3.2.1"
-  resolved "https://verdaccio.task4work.info/es6-promise/-/es6-promise-3.2.1.tgz#ec56233868032909207170c39448e24449dd1fc4"
+  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-3.2.1.tgz#ec56233868032909207170c39448e24449dd1fc4"
 
 es6-promise@^4.0.3:
   version "4.2.4"
@@ -1034,8 +1034,8 @@ glob-parent@^3.1.0:
     path-dirname "^1.0.0"
 
 glob@^7.0.5:
-  version "7.1.2"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.2.tgz#c19c9df9a028702d678612384a6552404c636d15"
+  version "7.1.3"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.3.tgz#3960832d3f1574108342dafd3a67b332c0969df1"
   dependencies:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"
@@ -1221,9 +1221,15 @@ iconv-lite@0.4.19:
   version "0.4.19"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.19.tgz#f7468f60135f5e5dad3399c0a81be9a1603a082b"
 
-iconv-lite@0.4.23, iconv-lite@^0.4.4, iconv-lite@~0.4.13:
+iconv-lite@0.4.23:
   version "0.4.23"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.23.tgz#297871f63be507adcfbfca715d0cd0eed84e9a63"
+  dependencies:
+    safer-buffer ">= 2.1.2 < 3"
+
+iconv-lite@^0.4.4, iconv-lite@~0.4.13:
+  version "0.4.24"
+  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
@@ -1572,7 +1578,7 @@ loopback-component-explorer@^6.0.0:
 
 loopback-connector-mongodb@^1.18.1:
   version "1.18.1"
-  resolved "https://verdaccio.task4work.info/loopback-connector-mongodb/-/loopback-connector-mongodb-1.18.1.tgz#41bce31222720773e11d51f4e13f198352150781"
+  resolved "https://registry.yarnpkg.com/loopback-connector-mongodb/-/loopback-connector-mongodb-1.18.1.tgz#41bce31222720773e11d51f4e13f198352150781"
   dependencies:
     async "^1.0.0"
     debug "^2.1.1"
@@ -1589,7 +1595,7 @@ loopback-connector-remote@^3.0.0:
 
 loopback-connector@^2.2.0:
   version "2.7.1"
-  resolved "https://verdaccio.task4work.info/loopback-connector/-/loopback-connector-2.7.1.tgz#60afc244e31919976391a997838685781fa28e52"
+  resolved "https://registry.yarnpkg.com/loopback-connector/-/loopback-connector-2.7.1.tgz#60afc244e31919976391a997838685781fa28e52"
   dependencies:
     async "^1.0.0"
     bluebird "^3.4.6"
@@ -1758,19 +1764,15 @@ micromatch@^3.1.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.2"
 
-"mime-db@>= 1.34.0 < 2":
+"mime-db@>= 1.34.0 < 2", mime-db@~1.36.0:
   version "1.36.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.36.0.tgz#5020478db3c7fe93aad7bbcc4dcf869c43363397"
 
-mime-db@~1.35.0:
-  version "1.35.0"
-  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.35.0.tgz#0569d657466491283709663ad379a99b90d9ab47"
-
 mime-types@^2.1.11, mime-types@^2.1.12, mime-types@~2.1.18, mime-types@~2.1.19:
-  version "2.1.19"
-  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.19.tgz#71e464537a7ef81c15f2db9d97e913fc0ff606f0"
+  version "2.1.20"
+  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.20.tgz#930cb719d571e903738520f8470911548ca2cc19"
   dependencies:
-    mime-db "~1.35.0"
+    mime-db "~1.36.0"
 
 mime@1.4.1:
   version "1.4.1"
@@ -1828,14 +1830,14 @@ mktmpdir@^0.1.1:
 
 mongodb-core@2.1.20:
   version "2.1.20"
-  resolved "https://verdaccio.task4work.info/mongodb-core/-/mongodb-core-2.1.20.tgz#fece8dd76b59ee7d7f2d313b65322c160492d8f1"
+  resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-2.1.20.tgz#fece8dd76b59ee7d7f2d313b65322c160492d8f1"
   dependencies:
     bson "~1.0.4"
     require_optional "~1.0.0"
 
 mongodb@^2.2.20:
   version "2.2.36"
-  resolved "https://verdaccio.task4work.info/mongodb/-/mongodb-2.2.36.tgz#1c573680b2849fb0f47acbba3dc5fa228de975f5"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-2.2.36.tgz#1c573680b2849fb0f47acbba3dc5fa228de975f5"
   dependencies:
     es6-promise "3.2.1"
     mongodb-core "2.1.20"
@@ -1865,7 +1867,7 @@ msgpack-stream@~0.0.10:
 
 msgpack5@^3.4.1:
   version "3.6.0"
-  resolved "https://verdaccio.task4work.info/msgpack5/-/msgpack5-3.6.0.tgz#13912ee47cb0ad037f70def7924ebf38afa19b4f"
+  resolved "https://registry.yarnpkg.com/msgpack5/-/msgpack5-3.6.0.tgz#13912ee47cb0ad037f70def7924ebf38afa19b4f"
   dependencies:
     bl "^1.2.1"
     inherits "^2.0.3"
@@ -1894,8 +1896,8 @@ mux-demux@^3.7.9:
     xtend "~1.0.3"
 
 nan@^2.9.2:
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.10.0.tgz#96d0cd610ebd58d4b4de9cc0c6828cda99c7548f"
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.11.0.tgz#574e360e4d954ab16966ec102c0c049fd961a099"
 
 nanoid@^1.0.7:
   version "1.2.1"
@@ -2192,7 +2194,7 @@ prepend-http@^1.0.1:
 
 process-nextick-args@~1.0.6:
   version "1.0.7"
-  resolved "https://verdaccio.task4work.info/process-nextick-args/-/process-nextick-args-1.0.7.tgz#150e20b756590ad3f91093f25a4f2ad8bff30ba3"
+  resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-1.0.7.tgz#150e20b756590ad3f91093f25a4f2ad8bff30ba3"
 
 process-nextick-args@~2.0.0:
   version "2.0.0"
@@ -2282,7 +2284,7 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
 
 readable-stream@2.2.7:
   version "2.2.7"
-  resolved "https://verdaccio.task4work.info/readable-stream/-/readable-stream-2.2.7.tgz#07057acbe2467b22042d36f98c5ad507054e95b1"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.7.tgz#07057acbe2467b22042d36f98c5ad507054e95b1"
   dependencies:
     buffer-shims "~1.0.0"
     core-util-is "~1.0.0"
@@ -2380,14 +2382,14 @@ request@^2.83.0:
 
 require_optional@~1.0.0:
   version "1.0.1"
-  resolved "https://verdaccio.task4work.info/require_optional/-/require_optional-1.0.1.tgz#4cf35a4247f64ca3df8c2ef208cc494b1ca8fc2e"
+  resolved "https://registry.yarnpkg.com/require_optional/-/require_optional-1.0.1.tgz#4cf35a4247f64ca3df8c2ef208cc494b1ca8fc2e"
   dependencies:
     resolve-from "^2.0.0"
     semver "^5.1.0"
 
 resolve-from@^2.0.0:
   version "2.0.0"
-  resolved "https://verdaccio.task4work.info/resolve-from/-/resolve-from-2.0.0.tgz#9480ab20e94ffa1d9e80a804c7ea147611966b57"
+  resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-2.0.0.tgz#9480ab20e94ffa1d9e80a804c7ea147611966b57"
 
 resolve-url@^0.2.1:
   version "0.2.1"
@@ -2679,7 +2681,7 @@ string-width@^1.0.1:
 
 string_decoder@~1.0.0:
   version "1.0.3"
-  resolved "https://verdaccio.task4work.info/string_decoder/-/string_decoder-1.0.3.tgz#0fc67d7c141825de94282dd536bec6b9bce860ab"
+  resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.0.3.tgz#0fc67d7c141825de94282dd536bec6b9bce860ab"
   dependencies:
     safe-buffer "~5.1.0"
 
@@ -2786,8 +2788,8 @@ supports-color@^5.2.0, supports-color@^5.3.0:
     has-flag "^3.0.0"
 
 swagger-client@^3.8.3:
-  version "3.8.14"
-  resolved "https://registry.yarnpkg.com/swagger-client/-/swagger-client-3.8.14.tgz#aae0a4c0e7aebf0541606dcd0eba52755c7e0b69"
+  version "3.8.15"
+  resolved "https://registry.yarnpkg.com/swagger-client/-/swagger-client-3.8.15.tgz#eb72b4cceea7d2c733a36e5cd1f44fcb981a3deb"
   dependencies:
     "@kyleshockey/js-yaml" "^1.0.1"
     "@kyleshockey/object-assign-deep" "^0.4.0"
