@@ -29,12 +29,18 @@ class Dropdown extends React.Component<Props, State> {
     isOpen: false,
   }
 
-  componentDidMount() {
-    document.addEventListener('click', (e) => {
-      if (!this.dropdownRef.contains(e.target)) {
-        this.handleClose()
-      }
-    })
+  componentDidMount () {
+    document.addEventListener('click', this.handleClick)
+  }
+
+  componentWillUnmount () {
+    document.removeEventListener('click', this.handleClick)
+  }
+
+  handleClick = (e) => {
+    if (!this.dropdownRef.contains(e.target)) {
+      this.handleClose()
+    }
   }
 
   handleDropdown = (e) =>
@@ -49,7 +55,7 @@ class Dropdown extends React.Component<Props, State> {
     }
   }
 
-  render() {
+  render () {
     const { items, placeholder, tabIndex, width, activeItem } = this.props
     const { isOpen } = this.state
     return (

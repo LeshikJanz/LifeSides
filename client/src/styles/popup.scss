@@ -31,6 +31,9 @@
     }
   }
   &-container {
+    position: relative;
+    border-radius: 25px;
+    background-color: #fff;
     padding: 15px;
   }
   &-header {
@@ -42,7 +45,11 @@
     }
   }
   &-body {
-    margin: 0 90px;
+    margin: 0 75px;
+    font-family: Lato;
+  }
+  &-content {
+    font-family: Lato;
   }
 }
 

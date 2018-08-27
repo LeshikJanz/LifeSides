@@ -2,5 +2,15 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "mongodbDs": {
+    "host": "0.0.0.0",
+    "port": 27017,
+    "url": "",
+    "database": "LifeSides",
+    "password": "",
+    "name": "mongodbDs",
+    "user": "",
+    "connector": "mongodb"
   }
 }

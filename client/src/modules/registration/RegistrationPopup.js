@@ -7,8 +7,10 @@ import popup from 'hocs/popup'
 import './styles.scss'
 import Field from 'components/field/Field'
 import Dropdown from 'components/dropdown/Dropdown'
+import api from 'api/account'
 import { HOURS, MINUTES } from './constants'
 import { isPasswordsSame } from './utils'
+import SuccessfulRegistrationPopup from './SuccessfulRegistrationPopup'
 
 type Props = {} & Popup
 
@@ -17,6 +19,7 @@ type State = {
   notificationMinute: ?DropdownItem,
   isFormValid: boolean,
   nonValidFieldNames: Object,
+  error: string,
 }
 
 class RegistrationPopup extends React.Component<Props, State> {
@@ -27,20 +30,37 @@ class RegistrationPopup extends React.Component<Props, State> {
     notificationMinute: null,
     isFormValid: false,
     nonValidFieldNames: {},
+    error: "",
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.formRef.addEventListener("blur", this.formValidation, true)
-    document.addEventListener("keypress", this.checkIfFieldBecomeValid, true)
+    document.addEventListener("keyup", this.checkIfFieldBecomeValid, true)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     this.formRef.removeEventListener("blur", this.formValidation, true)
-    document.removeEventListener("keypress", this.checkIfFieldBecomeValid, true)
+    document.removeEventListener("keyup", this.checkIfFieldBecomeValid, true)
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = (e: { target: HTMLFormElement } & Event) => {
     e.preventDefault()
+    this.setState({ error: "" })
+    const { email, username, password } = e.target.elements
+    const { notificationHour, notificationMinute } = this.state
+    api.createAccount({
+      email: email.value,
+      username: username.value,
+      password: password.value,
+      notificationHour: notificationHour && notificationHour.value,
+      notificationMinute: notificationMinute && notificationMinute.value,
+    })
+      .then(() => this.props.hide().then(SuccessfulRegistrationPopup.show))
+      .catch(({ error }) => {
+        if (error && error.message) {
+          this.setState({ error: error.message })
+        }
+      })
   }
 
   onDropdownChange = (name: string, value: string) =>
@@ -54,6 +74,12 @@ class RegistrationPopup extends React.Component<Props, State> {
           [e.target.name]: false,
         }
       }))
+    }
+    const { password, submitPassword } = this.formRef
+    const isPassSame = isPasswordsSame(password.value, submitPassword.value)
+    if (isPassSame) {
+      this.setState({ [password.name]: false, [submitPassword.name]: false })
+      this.formValidation()
     }
   }
 
@@ -88,9 +114,12 @@ class RegistrationPopup extends React.Component<Props, State> {
     }
   }
 
-  render() {
+  render () {
     const { hide } = this.props
-    const { notificationHour, notificationMinute, isFormValid, nonValidFieldNames } = this.state
+    const {
+      notificationHour, notificationMinute,
+      isFormValid, nonValidFieldNames, error,
+    } = this.state
     return (
       <div className="registration-wrapper popup-container">
         <div className="popup-close" onClick={hide} />
@@ -103,7 +132,7 @@ class RegistrationPopup extends React.Component<Props, State> {
         <form
           className="popup-body"
           onSubmit={this.handleSubmit}
-          ref={(ref) => (this.formRef = ref) }
+          ref={(ref) => (this.formRef = ref)}
         >
           <Field
             name="email"
@@ -115,7 +144,7 @@ class RegistrationPopup extends React.Component<Props, State> {
             isError={nonValidFieldNames["email"]}
           />
           <Field
-            name="name"
+            name="username"
             title="Имя пользователя*"
             placeholder="имя пользователя"
             required
@@ -163,9 +192,12 @@ class RegistrationPopup extends React.Component<Props, State> {
             errorText="Пароли не совпадают"
             isError={nonValidFieldNames["submitPassword"]}
           />
+          {
+            error && <span className="error">{error}</span>
+          }
           <div className="form-actions">
             <button className="green" disabled={!isFormValid}>
-              Подтвердить
+              Продолжить
             </button>
           </div>
         </form>

@@ -9,6 +9,7 @@ import { Player } from 'video-react'
 import coffeeShop from 'assets/videos/CoffeeShoptablet.webm'
 import RegistrationPopup from "modules/registration/RegistrationPopup"
 import AuthPopup from "modules/auth/AuthPopup"
+import SuccessfulRegistrationPopup from '../registration/SuccessfulRegistrationPopup'
 
 type Props = {
   onInit: () => void,
@@ -20,8 +21,6 @@ class Welcome extends React.Component<Props> {
   }
 
   render() {
-    console.log("coffeeShop")
-    console.log(coffeeShop)
     return (
       <Fragment>
         <div className="main-label-wrapper">
@@ -32,7 +31,7 @@ class Welcome extends React.Component<Props> {
             <button className="dark-red big" onClick={RegistrationPopup.show}>
               Регистрация
             </button>
-            <button className="green big" onClick={AuthPopup.show}>
+            <button className="green big" onClick={SuccessfulRegistrationPopup.show}>
               Авторизация
             </button>
           </div>

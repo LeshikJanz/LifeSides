@@ -128,7 +128,7 @@ async-each@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/async-each/-/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
 
-async@^1.5.2:
+async@^1.0.0, async@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
 
@@ -210,6 +210,13 @@ bcryptjs@^2.1.0:
 binary-extensions@^1.0.0:
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-1.11.0.tgz#46aa1751fb6a2f93ee5e689bb1087d4b14c6c205"
+
+bl@^1.2.1:
+  version "1.2.2"
+  resolved "https://verdaccio.task4work.info/bl/-/bl-1.2.2.tgz#a160911717103c07410cef63ef51b397c025af9c"
+  dependencies:
+    readable-stream "^2.3.5"
+    safe-buffer "^5.1.1"
 
 bl@^2.0.0:
   version "2.0.1"
@@ -300,9 +307,17 @@ braces@^2.3.0, braces@^2.3.1:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
+bson@~1.0.4:
+  version "1.0.9"
+  resolved "https://verdaccio.task4work.info/bson/-/bson-1.0.9.tgz#12319f8323b1254739b7c6bef8d3e89ae05a2f57"
+
 btoa@1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/btoa/-/btoa-1.1.2.tgz#3e40b81663f81d2dd6596a4cb714a8dc16cfabe0"
+
+buffer-shims@~1.0.0:
+  version "1.0.0"
+  resolved "https://verdaccio.task4work.info/buffer-shims/-/buffer-shims-1.0.0.tgz#9978ce317388c649ad8793028c3477ef044a8b51"
 
 buffer@^5.1.0:
   version "5.2.0"
@@ -563,7 +578,7 @@ dasherize@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/dasherize/-/dasherize-2.0.0.tgz#6d809c9cd0cf7bb8952d80fc84fa13d47ddb1308"
 
-debug@2.6.9, debug@^2.0.0, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3:
+debug@2.6.9, debug@^2.0.0, debug@^2.1.1, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   dependencies:
@@ -724,6 +739,10 @@ encoding@^0.1.11:
 entities@^1.1.1, entities@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
+
+es6-promise@3.2.1:
+  version "3.2.1"
+  resolved "https://verdaccio.task4work.info/es6-promise/-/es6-promise-3.2.1.tgz#ec56233868032909207170c39448e24449dd1fc4"
 
 es6-promise@^4.0.3:
   version "4.2.4"
@@ -1245,7 +1264,7 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-inherits@2, inherits@2.0.3, inherits@^2.0.1, inherits@^2.0.3, inherits@~2.0.3:
+inherits@2, inherits@2.0.3, inherits@^2.0.1, inherits@^2.0.3, inherits@~2.0.1, inherits@~2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
 
@@ -1551,12 +1570,32 @@ loopback-component-explorer@^6.0.0:
     strong-globalize "^4.1.1"
     swagger-ui "^2.2.5"
 
+loopback-connector-mongodb@^1.18.1:
+  version "1.18.1"
+  resolved "https://verdaccio.task4work.info/loopback-connector-mongodb/-/loopback-connector-mongodb-1.18.1.tgz#41bce31222720773e11d51f4e13f198352150781"
+  dependencies:
+    async "^1.0.0"
+    debug "^2.1.1"
+    loopback-connector "^2.2.0"
+    mongodb "^2.2.20"
+    strong-globalize "^2.6.0"
+
 loopback-connector-remote@^3.0.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/loopback-connector-remote/-/loopback-connector-remote-3.4.0.tgz#413ce53a5a81bffeb3ff3f47e78a1bc45f80affa"
   dependencies:
     loopback-datasource-juggler "^3.0.0"
     strong-remoting "^3.0.0"
+
+loopback-connector@^2.2.0:
+  version "2.7.1"
+  resolved "https://verdaccio.task4work.info/loopback-connector/-/loopback-connector-2.7.1.tgz#60afc244e31919976391a997838685781fa28e52"
+  dependencies:
+    async "^1.0.0"
+    bluebird "^3.4.6"
+    debug "^2.2.0"
+    msgpack5 "^3.4.1"
+    strong-globalize "^2.5.8"
 
 loopback-connector@^4.4.0:
   version "4.5.1"
@@ -1787,6 +1826,21 @@ mktmpdir@^0.1.1:
   dependencies:
     rimraf "~2.2.8"
 
+mongodb-core@2.1.20:
+  version "2.1.20"
+  resolved "https://verdaccio.task4work.info/mongodb-core/-/mongodb-core-2.1.20.tgz#fece8dd76b59ee7d7f2d313b65322c160492d8f1"
+  dependencies:
+    bson "~1.0.4"
+    require_optional "~1.0.0"
+
+mongodb@^2.2.20:
+  version "2.2.36"
+  resolved "https://verdaccio.task4work.info/mongodb/-/mongodb-2.2.36.tgz#1c573680b2849fb0f47acbba3dc5fa228de975f5"
+  dependencies:
+    es6-promise "3.2.1"
+    mongodb-core "2.1.20"
+    readable-stream "2.2.7"
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -1808,6 +1862,15 @@ msgpack-stream@~0.0.10:
     bops "1.0.0"
     msgpack-js "0.3.0"
     through "2.3.4"
+
+msgpack5@^3.4.1:
+  version "3.6.0"
+  resolved "https://verdaccio.task4work.info/msgpack5/-/msgpack5-3.6.0.tgz#13912ee47cb0ad037f70def7924ebf38afa19b4f"
+  dependencies:
+    bl "^1.2.1"
+    inherits "^2.0.3"
+    readable-stream "^2.3.3"
+    safe-buffer "^5.1.1"
 
 msgpack5@^4.2.0:
   version "4.2.0"
@@ -2127,6 +2190,10 @@ prepend-http@^1.0.1:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
 
+process-nextick-args@~1.0.6:
+  version "1.0.7"
+  resolved "https://verdaccio.task4work.info/process-nextick-args/-/process-nextick-args-1.0.7.tgz#150e20b756590ad3f91093f25a4f2ad8bff30ba3"
+
 process-nextick-args@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.0.tgz#a37d732f4271b4ab1ad070d35508e8290788ffaa"
@@ -2213,7 +2280,19 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.3.5, readable-stream@^2.3.6:
+readable-stream@2.2.7:
+  version "2.2.7"
+  resolved "https://verdaccio.task4work.info/readable-stream/-/readable-stream-2.2.7.tgz#07057acbe2467b22042d36f98c5ad507054e95b1"
+  dependencies:
+    buffer-shims "~1.0.0"
+    core-util-is "~1.0.0"
+    inherits "~2.0.1"
+    isarray "~1.0.0"
+    process-nextick-args "~1.0.6"
+    string_decoder "~1.0.0"
+    util-deprecate "~1.0.1"
+
+readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.3.3, readable-stream@^2.3.5, readable-stream@^2.3.6:
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
   dependencies:
@@ -2298,6 +2377,17 @@ request@^2.83.0:
     tough-cookie "~2.4.3"
     tunnel-agent "^0.6.0"
     uuid "^3.3.2"
+
+require_optional@~1.0.0:
+  version "1.0.1"
+  resolved "https://verdaccio.task4work.info/require_optional/-/require_optional-1.0.1.tgz#4cf35a4247f64ca3df8c2ef208cc494b1ca8fc2e"
+  dependencies:
+    resolve-from "^2.0.0"
+    semver "^5.1.0"
+
+resolve-from@^2.0.0:
+  version "2.0.0"
+  resolved "https://verdaccio.task4work.info/resolve-from/-/resolve-from-2.0.0.tgz#9480ab20e94ffa1d9e80a804c7ea147611966b57"
 
 resolve-url@^0.2.1:
   version "0.2.1"
@@ -2587,6 +2677,12 @@ string-width@^1.0.1:
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^4.0.0"
 
+string_decoder@~1.0.0:
+  version "1.0.3"
+  resolved "https://verdaccio.task4work.info/string_decoder/-/string_decoder-1.0.3.tgz#0fc67d7c141825de94282dd536bec6b9bce860ab"
+  dependencies:
+    safe-buffer "~5.1.0"
+
 string_decoder@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"
@@ -2624,7 +2720,7 @@ strong-error-handler@^3.0.0:
     js2xmlparser "^3.0.0"
     strong-globalize "^4.1.0"
 
-strong-globalize@^2.6.2:
+strong-globalize@^2.5.8, strong-globalize@^2.6.0, strong-globalize@^2.6.2:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/strong-globalize/-/strong-globalize-2.10.0.tgz#6f0e5c776c749fefbe73954b219c1fd96c8ae317"
   dependencies:

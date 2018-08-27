@@ -34,5 +34,12 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Account": {
+    "dataSource": "mongodbDs",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": false
+    }
   }
 }
