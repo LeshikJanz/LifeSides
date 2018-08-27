@@ -28,7 +28,7 @@ export const JSONResponse = (response: any) => {
  *
  * @type {any}
  */
-export const request: any = new Object({
+export const request: any = ({
   get: (apiEndpoint: string, params?: any) => {
 
     const paramsString = Object

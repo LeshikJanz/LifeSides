@@ -121,7 +121,7 @@ class RegistrationPopup extends React.Component<Props, State> {
       isFormValid, nonValidFieldNames, error,
     } = this.state
     return (
-      <div className="registration-wrapper popup-container">
+      <div className="popup-central registration-wrapper popup-container">
         <div className="popup-close" onClick={hide} />
         <div className="popup-header">
           <div className="popup-header-title dark-red">
@@ -196,7 +196,7 @@ class RegistrationPopup extends React.Component<Props, State> {
             error && <span className="error">{error}</span>
           }
           <div className="form-actions">
-            <button className="green" disabled={!isFormValid}>
+            <button className="green gta" disabled={!isFormValid}>
               Продолжить
             </button>
           </div>

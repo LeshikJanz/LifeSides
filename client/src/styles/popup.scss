@@ -51,6 +51,25 @@
   &-content {
     font-family: Lato;
   }
+  &-central {
+    position: relative;
+    border-radius: 25px;
+    margin: auto;
+    width: 80%;
+    max-width: 560px;
+  }
+}
+
+.successful-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #417505;
+}
+
+.warning-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #8B2A2A;
 }
 
 hr.popup-header-line {

@@ -14,7 +14,7 @@ type Props = {
   isError: ?boolean,
 }
 
-const Field = ({ name, type = "text", title, value, onChange, placeholder, errorText, isError, required }) => (
+const Field = ({ name, type = "text", title, value, onChange, placeholder, errorText, isError, required }: Props) => (
   <div className={`field ${isError ? "error" : ""}`}>
     <title>{title}</title>
     <input

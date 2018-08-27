@@ -1,0 +1,15 @@
+.auth {
+  &-content {
+    position: relative;
+    border-radius: 25px;
+    margin: auto;
+    width: 80%;
+    max-width: 560px;
+  }
+  &-actions {
+    text-align: center;
+    button:last-child {
+      margin-left: 30px;
+    }
+  }
+}

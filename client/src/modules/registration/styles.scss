@@ -1,39 +1,7 @@
-.registration, .successful-registration {
-  &-wrapper {
-    position: relative;
-    border-radius: 25px;
-    background-color: #fff;
-    margin: auto;
-    width: 80%;
-    max-width: 560px;
-
-    button {
-      height: 50px;
-      font-size: 18px;
-      padding: 10px 20px;
-
-      &.dark-red-empty {
-        border: 3px solid #8B2A2A;
-        border-radius: 25px;
-      }
-
-      &.green {
-        border-radius: 25px;
-      }
-    }
-  }
-}
-
 .successful-registration {
   &-content {
     text-align: center;
     margin: 0 50px;
-  }
-
-  &-title {
-    font-size: 28px;
-    font-weight: bold;
-    color: #417505;
   }
 
   &-actions {

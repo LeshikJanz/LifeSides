@@ -6,7 +6,7 @@ import popup from 'hocs/popup'
 
 function SuccessfulRegistrationPopup ({ hide }: Popup) {
   return (
-    <div className="successful-registration-wrapper popup-container">
+    <div className="popup-central successful-registration-wrapper popup-container">
       <div className="popup-close" onClick={hide} />
       <div className="popup-header successful-title">
         Успешная регистрация!
@@ -18,7 +18,7 @@ function SuccessfulRegistrationPopup ({ hide }: Popup) {
         Мы Вам в этом поможем!
       </div>
       <div className="successful-registration-actions form-actions">
-        <button className="green">
+        <button className="green gta">
           Отлично!
         </button>
       </div>
