@@ -22,8 +22,32 @@
     white-space: nowrap;
     padding: 0 20px;
   }
+  &-dropdown {
+    position: absolute;
+    top: 40px;
+    left: -30px;
+    padding: 0;
+
+    li {
+      font-size: 14px;
+      text-align: center;
+      padding: 14px 8px 6px 8px;
+      height: 18px;
+      background-color: #fff;
+      list-style-type: none;
+      cursor: pointer;
+      width: 100%;
+      border-bottom: 1px solid rgba(128, 128, 128, .2);
+      border-left: 1px solid rgba(128, 128, 128, .2);
+      border-right: 1px solid rgba(128, 128, 128, .2);
+      &:hover {
+        background-color: #f6f7f9;
+      }
+    }
+  }
   &-logo-container {
     display: flex;
+    position: relative;
     height: inherit;
     align-items: center;
     .header-logo {
