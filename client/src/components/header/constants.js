@@ -12,3 +12,14 @@ export const HEADER_MENU_ITEMS: DropdownItem[] = [
     value: "habbit",
   }
 ]
+
+export const HEADER_PROFILE_MENU_ITEMS: DropdownItem[] = [
+  {
+    title: "Профиль",
+    value: "profile",
+  },
+  {
+    title: "Выйти",
+    value: "exit",
+  }
+]

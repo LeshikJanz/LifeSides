@@ -55,6 +55,8 @@
     align-items: center;
     .header-logo {
       height: 90%;
+      position: relative;
+      cursor: pointer;
       img {
         height: inherit;
         border: solid white;
