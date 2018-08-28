@@ -35,7 +35,10 @@ class Header extends React.Component<{}> {
           Life Sides
         </div>
         <div className="header-logo-container" onMouseLeave={this.onMouseLeave}>
-          <button className="green" onMouseOver={this.handleOpen}>
+          <button
+            className={`green ${isDropdownOpen ? "active" : ""}`}
+            onMouseOver={this.handleOpen}
+          >
             <span>Создать</span>
           </button>
           {

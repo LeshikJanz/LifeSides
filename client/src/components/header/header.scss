@@ -29,9 +29,12 @@
     padding: 0;
 
     li {
+      font-family: Lato;
+      font-weight: bold;
+      letter-spacing: 0.7px;
       font-size: 14px;
       text-align: center;
-      padding: 14px 8px 6px 8px;
+      padding: 10px 8px 10px 8px;
       height: 18px;
       background-color: #fff;
       list-style-type: none;
@@ -63,13 +66,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 110px;
+      width: 120px;
       height: 45px;
       font-size: 18px;
       font-weight: 100;
       color: #fff;
       border-radius: 40px;
-      padding: 8px;
+      padding: 8px 12px;
 
       &:after {
         content: '';
@@ -85,8 +88,9 @@
         transition: transform .5s;
       }
 
-      &:hover {
+      &.active {
         color: #5c931b;
+        background-color: #fff;
 
         &:after {
           transform: rotate(180deg);
