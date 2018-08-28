@@ -1,15 +1,17 @@
 // @flow
 
-import React, { Component, Fragment } from 'react'
-import { Switch, Route } from 'react-router-dom'
-import Welcome from './modules/welcome/Welcome'
+import React, { Fragment } from 'react'
+import { Route } from 'react-router-dom'
+import Welcome from 'modules/welcome/Welcome'
+import Main from 'modules/main/Main'
+import Header from 'components/header/Header'
 
 const App = () => (
   <Fragment>
     <div id="popup-root" />
-    <Switch>
-      <Route path="/" component={Welcome} />
-    </Switch>
+    <Route exact path="/" component={Welcome} />
+    <Header />
+    <Route exact path="/main" component={Main} />
   </Fragment>
 )
 

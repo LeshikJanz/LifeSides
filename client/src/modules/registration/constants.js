@@ -1,5 +1,6 @@
-import { DropdownItem } from 'types/common'
 // @flow
+
+import { DropdownItem } from 'types/common'
 
 export const HOURS: DropdownItem[] = Array.from({ length: 25 }, (value, key) => ({
   title: ('0' + key).slice(-2),

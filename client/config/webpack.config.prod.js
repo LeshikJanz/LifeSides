@@ -1,5 +1,3 @@
-
-
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
@@ -43,7 +41,7 @@ const cssFilename = 'static/css/[name].[contenthash:8].css';
 // To have this structure working with relative paths, we have to use custom options.
 const extractTextPluginOptions = shouldUseRelativeAssetPaths
   ? // Making sure that the publicPath goes back to to build folder.
-    { publicPath: Array(cssFilename.split('/').length).join('../') }
+  { publicPath: Array(cssFilename.split('/').length).join('../') }
   : {};
 
 // This is the production configuration.
@@ -92,6 +90,7 @@ module.exports = {
     alias: {
       assets: path.resolve(__dirname, '../src/assets'),
       api: path.resolve(__dirname, '../src/api'),
+      constants: path.resolve(__dirname, '../src/constants'),
       components: path.resolve(__dirname, '../src/components'),
       modules: path.resolve(__dirname, '../src/modules'),
       hocs: path.resolve(__dirname, '../src/hocs'),
@@ -313,7 +312,7 @@ module.exports = {
       // about it being stale, and the cache-busting can be skipped.
       dontCacheBustUrlsMatching: /\.\w{8}\./,
       filename: 'service-worker.js',
-      logger(message) {
+      logger (message) {
         if (message.indexOf('Total precache size is') === 0) {
           // This message occurs for every build and is a bit too noisy.
           return;
