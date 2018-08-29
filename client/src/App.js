@@ -3,7 +3,7 @@
 import React, { Fragment } from 'react'
 import { Route } from 'react-router-dom'
 import Welcome from 'modules/welcome/Welcome'
-import Main from 'modules/main/Main'
+import Main from 'modules/main/components/Main'
 import Header from 'components/header/Header'
 
 const App = () => (
