@@ -24,8 +24,8 @@ class AuthPopup extends React.Component<Props, State> {
     const { email, password } = e.target.elements
     api.auth({ email: email.value, password: password.value })
       .then(() => {
+        window.location.replace("/main")
         this.props.hide()
-        alert("Успешная авторизация")
       })
       .catch(({ error }) => {
         if (error && error.message) {
@@ -63,9 +63,6 @@ class AuthPopup extends React.Component<Props, State> {
             error && <span className="error">{error}</span>
           }
           <div className="auth-actions form-actions">
-            <button className="dark-red-empty gta" onClick={hide}>
-              Отмена
-            </button>
             <button className="green gta">
               Войти в приложение
             </button>

@@ -9,6 +9,7 @@
 [options]
 module.name_mapper='^assets' ->'<PROJECT_ROOT>/src/assets'
 module.name_mapper='^api' ->'<PROJECT_ROOT>/src/api'
+module.name_mapper='^constants' ->'<PROJECT_ROOT>/src/constants'
 module.name_mapper='^components' ->'<PROJECT_ROOT>/src/components'
 module.name_mapper='^modules' ->'<PROJECT_ROOT>/src/modules'
 module.name_mapper='^hocs' ->'<PROJECT_ROOT>/src/hocs'

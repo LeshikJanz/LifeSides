@@ -1,12 +1,18 @@
 // @flow
 
-import React, { Fragment } from 'react'
+import type { DropdownItem } from 'types/common'
+import React from 'react'
 import './header.scss'
 import { MONTH_NAMES_COUNTED } from 'constants/dates'
 import userIcon from 'assets/images/user-icon.png'
 import { HEADER_MENU_ITEMS, HEADER_PROFILE_MENU_ITEMS } from './constants'
 
-class Header extends React.Component<{}> {
+type State = {
+  isCreationDropdownOpen: boolean,
+  isAvatarDropdownOpen: boolean,
+}
+
+class Header extends React.Component<{}, State> {
   state = {
     isCreationDropdownOpen: false,
     isAvatarDropdownOpen: false,
@@ -16,9 +22,7 @@ class Header extends React.Component<{}> {
     this.setState({ [dropdownType]: true })
   }
 
-  onDropdownChange = () => {
-
-  }
+  onDropdownChange = (item: DropdownItem) => {}
 
   onMouseLeave = () =>
     this.setState({ isCreationDropdownOpen: false, isAvatarDropdownOpen: false })
