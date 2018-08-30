@@ -8,10 +8,12 @@
   },
   "properties": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "repeatCount": {
-      "type": "number"
+      "type": "number",
+      "required": true
     },
     "repeatDelay": {
       "type": "string"
@@ -22,7 +24,7 @@
     "creationDate": {
       "type": "date"
     },
-    "lastRepetionDate": {
+    "lastRepetitionDate": {
       "type": "date"
     }
   },

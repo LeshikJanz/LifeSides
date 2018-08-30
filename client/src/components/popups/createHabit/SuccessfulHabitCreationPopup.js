@@ -4,24 +4,24 @@ import type { Popup } from "types/popup"
 import React from "react"
 import popup from 'hocs/popup'
 
-const SuccessfulRegistrationPopup = ({ hide }: Popup) => (
+const SuccessfulHabitCreationPopup = ({ hide, name }: Popup) => (
   <div className="popup-central successful-registration-wrapper popup-container">
     <div className="popup-close" onClick={hide} />
     <div className="popup-header successful-title">
-      Успешная регистрация!
+      Успешно!
     </div>
     <hr className="popup-header-line" />
     <div className="successful-registration-content popup-body">
-      Благодарим Вас за регистрацию! <br /><br />
-      Ставьте цели и повторяйте их каждый день,<br /> пока не выработается привычка.<br /><br />
-      Мы Вам в этом поможем!
+      Привычка <b>{name}</b> создана! <br /><br />
+      Выполняйте ее каждый день пока она не будет усвоена <br />
+      и добавлена в колбу навыков.
     </div>
     <div className="successful-registration-actions form-actions">
       <button className="green gta" onClick={hide}>
-        Отлично!
+        Продолжить
       </button>
     </div>
   </div>
 )
 
-export default popup(SuccessfulRegistrationPopup)
+export default popup(SuccessfulHabitCreationPopup)

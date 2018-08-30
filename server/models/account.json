@@ -21,7 +21,24 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "lifesides": {
+      "type": "hasMany",
+      "model": "Lifeside",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "habits": {
+      "type": "hasMany",
+      "model": "Habit",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
   "acls": [
     {
       "accessType": "READ",

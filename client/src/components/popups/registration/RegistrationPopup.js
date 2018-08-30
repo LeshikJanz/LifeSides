@@ -29,12 +29,12 @@ class RegistrationPopup extends React.Component<Popup, State> {
     error: "",
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.formRef.addEventListener("blur", this.formValidation, true)
     document.addEventListener("keyup", this.checkIfFieldBecomeValid, true)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     this.formRef.removeEventListener("blur", this.formValidation, true)
     document.removeEventListener("keyup", this.checkIfFieldBecomeValid, true)
   }
@@ -109,7 +109,7 @@ class RegistrationPopup extends React.Component<Popup, State> {
     }
   }
 
-  render() {
+  render () {
     const { hide } = this.props
     const {
       notificationHour, notificationMinute,
