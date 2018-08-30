@@ -29,7 +29,7 @@ export const JSONResponse = (response: any) => {
  * @type {any}
  */
 export const request: any = ({
-  get: (apiEndpoint: string, params?: any) => {
+  get: (apiEndpoint: string, params?: any = {}) => {
 
     const paramsString = Object
       .keys(params)

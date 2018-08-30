@@ -36,6 +36,7 @@
     "react": "^16.4.2",
     "react-dev-utils": "^5.0.2",
     "react-dom": "^16.4.2",
+    "react-notifications": "^1.4.3",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-svg": "^6.0.3",

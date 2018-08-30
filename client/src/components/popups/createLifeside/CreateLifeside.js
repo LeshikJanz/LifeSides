@@ -5,7 +5,7 @@ import Field from 'components/field/Field'
 import popup from 'hocs/popup'
 import api from 'api/lifeside'
 import SuccessfulLifesidePopup from './SuccessfulLifesidePopup'
-import Dropdown from 'components/dropdown/Dropdown'
+import ColorDropdown from 'components/dropdowns/ColorDropdown'
 import { FLASK_COLORS } from 'constants/flaskColors'
 
 type State = {
@@ -101,7 +101,7 @@ class CreateLifeside extends React.Component<Popup, State> {
           />
           <div className="field">
             <title>Цвет колбы</title>
-            <Dropdown
+            <ColorDropdown
               name="flaskColor"
               activeItem={flaskColor}
               onChange={this.onDropdownChange}

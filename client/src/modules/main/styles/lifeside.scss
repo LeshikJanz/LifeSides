@@ -1,0 +1,16 @@
+.lifeside {
+  &-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-habit-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+  }
+  &-right-side-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}

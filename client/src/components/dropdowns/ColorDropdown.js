@@ -32,18 +32,18 @@ const ColorListItem = styled.div`
   width: 20px;
 `
 
-class Dropdown extends React.Component<Props, State> {
+class ColorDropdown extends React.Component<Props, State> {
   dropdownRef: HTMLDivElement
 
   state = {
     isOpen: false,
   }
 
-  componentDidMount () {
+  componentDidMount() {
     document.addEventListener('click', this.handleClick)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     document.removeEventListener('click', this.handleClick)
   }
 
@@ -65,7 +65,7 @@ class Dropdown extends React.Component<Props, State> {
     }
   }
 
-  render () {
+  render() {
     const { items, placeholder, tabIndex, width, activeItem } = this.props
     const { isOpen } = this.state
     return (
@@ -74,14 +74,11 @@ class Dropdown extends React.Component<Props, State> {
         width={width}
         className={`dropdown-wrapper ${isOpen ? 'active' : ''}`}
       >
-        {
-          activeItem && activeItem.type === "color" &&
-          <ColorListItem
-            className="with-drop-arrow"
-            color={activeItem.value}
-            onClick={this.handleDropdown}
-          />
-        }
+        <ColorListItem
+          className="with-drop-arrow"
+          color={activeItem.value}
+          onClick={this.handleDropdown}
+        />
         <input
           type="text"
           value={activeItem ? (activeItem.type === "color" ? "" : activeItem.value) : undefined}
@@ -98,11 +95,7 @@ class Dropdown extends React.Component<Props, State> {
                 onClick={() => this.onChange(item)}
                 value={item.value}
               >
-                {
-                  item.type === "color"
-                    ? <ColorListItem className="with-color-title" color={item.value} />
-                    : item.title
-                }
+                <ColorListItem className="with-color-title" color={item.value} />
               </li>
             )
           }
@@ -112,4 +105,4 @@ class Dropdown extends React.Component<Props, State> {
   }
 }
 
-export default Dropdown
+export default ColorDropdown
