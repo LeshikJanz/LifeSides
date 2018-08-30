@@ -7,8 +7,8 @@ import './styles/styles.scss'
 import './styles/video.scss'
 import { Player } from 'video-react'
 import coffeeShop from 'assets/videos/CoffeeShoptablet.webm'
-import RegistrationPopup from "modules/registration/RegistrationPopup"
-import AuthPopup from "modules/auth/AuthPopup"
+import RegistrationPopup from 'components/popups/registration/RegistrationPopup'
+import AuthPopup from 'components/popups/auth/AuthPopup'
 
 type Props = {
   onInit: () => void,

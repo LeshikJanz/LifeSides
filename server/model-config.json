@@ -41,5 +41,13 @@
     "options": {
       "emailVerificationRequired": false
     }
+  },
+  "Lifeside": {
+    "dataSource": "mongodbDs",
+    "public": true
+  },
+  "Habit": {
+    "dataSource": "mongodbDs",
+    "public": true
   }
 }

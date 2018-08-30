@@ -1,0 +1,33 @@
+{
+  "name": "Habit",
+  "plural": "Habits",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "repeatCount": {
+      "type": "number"
+    },
+    "repeatDelay": {
+      "type": "string"
+    },
+    "repeatProgress": {
+      "type": "number"
+    },
+    "creationDate": {
+      "type": "date"
+    },
+    "lastRepetionDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -6,6 +6,7 @@ import './header.scss'
 import { MONTH_NAMES_COUNTED } from 'constants/dates'
 import userIcon from 'assets/images/user-icon.png'
 import { HEADER_MENU_ITEMS, HEADER_PROFILE_MENU_ITEMS } from './constants'
+import CreateHabit from 'components/popups/createHabit/CreateHabit'
 
 type State = {
   isCreationDropdownOpen: boolean,
@@ -22,7 +23,15 @@ class Header extends React.Component<{}, State> {
     this.setState({ [dropdownType]: true })
   }
 
-  onDropdownChange = (item: DropdownItem) => {}
+  onDropdownChange = (item: DropdownItem) => {
+    switch (item.value) {
+      case "habbit":
+        CreateHabit.show()
+        break
+      default:
+        return
+    }
+  }
 
   onMouseLeave = () =>
     this.setState({ isCreationDropdownOpen: false, isAvatarDropdownOpen: false })
