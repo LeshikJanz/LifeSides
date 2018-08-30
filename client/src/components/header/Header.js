@@ -7,6 +7,7 @@ import { MONTH_NAMES_COUNTED } from 'constants/dates'
 import userIcon from 'assets/images/user-icon.png'
 import { HEADER_MENU_ITEMS, HEADER_PROFILE_MENU_ITEMS } from './constants'
 import CreateHabit from 'components/popups/createHabit/CreateHabit'
+import CreateLifeside from 'components/popups/createLifeside/CreateLifeside'
 
 type State = {
   isCreationDropdownOpen: boolean,
@@ -27,6 +28,9 @@ class Header extends React.Component<{}, State> {
     switch (item.value) {
       case "habbit":
         CreateHabit.show()
+        break
+      case "lifeside":
+        CreateLifeside.show()
         break
       default:
         return

@@ -19,8 +19,17 @@ type State = {
 }
 
 const Wrapper = styled.div`
+  position: relative;
   width: ${({ width }) => width ? width + "px" : "auto"};
   height: 40px;
+`
+
+const ColorListItem = styled.div`
+  background-color: ${({ color }) => color};
+  border-radius: 2px;
+  border: solid 1px #979797;
+  height: 20px;
+  width: 20px;
 `
 
 class Dropdown extends React.Component<Props, State> {
@@ -30,11 +39,11 @@ class Dropdown extends React.Component<Props, State> {
     isOpen: false,
   }
 
-  componentDidMount() {
+  componentDidMount () {
     document.addEventListener('click', this.handleClick)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     document.removeEventListener('click', this.handleClick)
   }
 
@@ -56,7 +65,7 @@ class Dropdown extends React.Component<Props, State> {
     }
   }
 
-  render() {
+  render () {
     const { items, placeholder, tabIndex, width, activeItem } = this.props
     const { isOpen } = this.state
     return (
@@ -65,9 +74,17 @@ class Dropdown extends React.Component<Props, State> {
         width={width}
         className={`dropdown-wrapper ${isOpen ? 'active' : ''}`}
       >
+        {
+          activeItem && activeItem.type === "color" &&
+          <ColorListItem
+            className="with-drop-arrow"
+            color={activeItem.value}
+            onClick={this.handleDropdown}
+          />
+        }
         <input
           type="text"
-          value={activeItem ? activeItem.value : undefined}
+          value={activeItem ? (activeItem.type === "color" ? "" : activeItem.value) : undefined}
           tabIndex={tabIndex}
           readOnly
           onClick={this.handleDropdown}
@@ -81,7 +98,11 @@ class Dropdown extends React.Component<Props, State> {
                 onClick={() => this.onChange(item)}
                 value={item.value}
               >
-                {item.title}
+                {
+                  item.type === "color"
+                    ? <ColorListItem className="with-color-title" color={item.value} />
+                    : item.title
+                }
               </li>
             )
           }

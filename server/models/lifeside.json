@@ -11,6 +11,12 @@
       "type": "string",
       "required": true
     },
+    "description": {
+      "type": "string"
+    },
+    "flaskColor": {
+      "type": "string"
+    },
     "creationDate": {
       "type": "date"
     }
