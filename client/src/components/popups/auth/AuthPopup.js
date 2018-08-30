@@ -23,7 +23,8 @@ class AuthPopup extends React.Component<Props, State> {
     e.preventDefault()
     const { email, password } = e.target.elements
     api.auth({ email: email.value, password: password.value })
-      .then(() => {
+      .then((authData) => {
+        this.saveAuthData(authData)
         window.location.replace("/main")
         this.props.hide()
       })
@@ -34,7 +35,12 @@ class AuthPopup extends React.Component<Props, State> {
       })
   }
 
-  render () {
+  saveAuthData = (authData) => {
+    localStorage.setItem("id", authData.id)
+    localStorage.setItem("accountId", authData.userId)
+  }
+
+  render() {
     const { hide } = this.props
     const { error } = this.state
     return (

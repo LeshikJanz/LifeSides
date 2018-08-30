@@ -6,11 +6,13 @@ import handleError from 'utils/handleError'
 
 export default {
   createLifeside (lifeside: Lifeside) {
-    return request.post('Lifesides', lifeside)
+    const accountId = localStorage.getItem("accountId")
+    return request.post(`Accounts/${accountId}/Lifesides`, lifeside)
       .then((lifeside: Lifeside) => lifeside)
   },
   fetchLifesides () {
-    return request.get('Lifesides')
+    const accountId = localStorage.getItem("accountId")
+    return request.get(`Accounts/${accountId}/Lifesides`)
       .then((lifesides: Lifeside[]) => lifesides)
       .catch(handleError)
   }

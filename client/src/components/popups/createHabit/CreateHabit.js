@@ -20,12 +20,12 @@ class CreateHabit extends React.Component<Popup, State> {
     error: "",
   }
 
-  componentDidMount () {
+  componentDidMount() {
     document.addEventListener("keyup", this.formValidation, true)
     document.addEventListener("mouseup", this.formValidation, true)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     document.removeEventListener("keyup", this.formValidation, true)
     document.removeEventListener("mouseup", this.formValidation, true)
   }
@@ -60,7 +60,7 @@ class CreateHabit extends React.Component<Popup, State> {
     api.createHabit({
       name: name.value,
       repeatCount: repeatCount.value,
-    })
+    }, this.props.lifesideId)
       .then(this.props.hide().then(() => SuccessfulHabitCreationPopup.show({ name: name.value })))
       .catch(({ error }) => {
         if (error && error.message) {
@@ -69,7 +69,7 @@ class CreateHabit extends React.Component<Popup, State> {
       })
   }
 
-  render () {
+  render() {
     const { isFormValid, error } = this.state
     const { hide } = this.props
     return (
