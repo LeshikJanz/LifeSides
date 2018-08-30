@@ -1,0 +1,18 @@
+.habit-back-side {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  width: 208px;
+  height: 55px;
+  padding: 6px 11px;
+  background-color: transparent;
+  border-radius: 8px;
+  border: solid 3px #979797;
+
+  span {
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.46);
+  }
+}

@@ -1,0 +1,51 @@
+.habit {
+  &-wrapper {
+    display: flex;
+    background-color: #3880c8;
+    width: 208px;
+    height: 55px;
+    border-radius: 8px;
+    padding: 6px 11px;
+  }
+  &-text-block {
+    font-family: Helvetica;
+    cursor: pointer;
+    line-height: 18px;
+    height: 100%;
+    font-size: 14px;
+    color: #fff;
+    border-right: 1px #979797 solid;
+  }
+  &-actions {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    .confirm-button {
+      cursor: pointer;
+      opacity: .9;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &[disabled] {
+        cursor: not-allowed;
+        opacity: 1;
+        circle {
+          fill: #4D605D;
+
+        }
+        path: {
+          fill: red;
+        }
+      }
+    }
+  }
+  &-progress {
+    font-size: 14px;
+    color: #ffffff;
+    white-space: nowrap;
+  }
+}
