@@ -41,8 +41,8 @@ class Habit extends React.Component<Props, State> {
       name, repeatProgress = 0,
       repeatCount, lastRepetitionDate,
     } = this.props
-    console.log("lastRepetitionDate")
-    console.log(lastRepetitionDate)
+    const isRepetitionAvailable =
+      new Date().getTime() - new Date(lastRepetitionDate).getTime() > HABIT_COMPLETE_TIMEOUT
     if (!this.state.habitFrontSide) {
       return (
         <HabitBackSide
@@ -58,14 +58,16 @@ class Habit extends React.Component<Props, State> {
         </div>
         <div className="habit-actions">
           <ReactSVG
-            disabled={new Date().getTime() - new Date(lastRepetitionDate).getTime() < HABIT_COMPLETE_TIMEOUT}
+            disabled={!isRepetitionAvailable}
             className="confirm-button"
             src={confirmHabitIcon}
             onClick={this.completeOneTime}
           />
-          <div className="habit-progress">
-            {repeatProgress} / {repeatCount}
-          </div>
+          {
+            isRepetitionAvailable
+              ? <div className="habit-progress">{repeatProgress} / {repeatCount}</div>
+              : <div className="loading-bar" />
+          }
         </div>
       </div>
     )
