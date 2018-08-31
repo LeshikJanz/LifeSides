@@ -24,6 +24,7 @@
   }
   &-dropdown {
     position: absolute;
+    z-index: 5;
     top: 40px;
     left: -30px;
     padding: 0;

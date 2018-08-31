@@ -37,3 +37,18 @@ h1 {
 .dark-red {
   color: #8B2A2A;
 }
+
+span.arrow-down {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #5c931b;
+  transition: .3s transform;
+
+  &.active {
+    transform: rotate(180deg);
+  }
+}

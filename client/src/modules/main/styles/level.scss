@@ -1,5 +1,6 @@
 .level {
   &-wrapper {
+    position: relative;
     text-align: center;
     span {
       font-family: Helvetica;
@@ -7,10 +8,42 @@
       font-weight: bold;
       color: #5c931b;
     }
+    .arrow-down {
+      left: 8px;
+    }
     hr {
       height: 3px;
       background-color: #5C931B;
       border: none;
+    }
+  }
+  &-dropdown-btn {
+    cursor: pointer;
+  }
+  &-dropdown-list {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    padding: 0;
+
+    li {
+      font-family: Lato;
+      font-weight: bold;
+      letter-spacing: 0.7px;
+      font-size: 14px;
+      text-align: center;
+      padding: 10px 8px 10px 8px;
+      height: 18px;
+      background-color: #fff;
+      list-style-type: none;
+      cursor: pointer;
+      width: 100%;
+      border-bottom: 1px solid rgba(128, 128, 128, .2);
+      border-left: 1px solid rgba(128, 128, 128, .2);
+      border-right: 1px solid rgba(128, 128, 128, .2);
+      &:hover {
+        background-color: #f6f7f9;
+      }
     }
   }
 }
