@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react'
 import ReactDOM from 'react-dom'
+import { store } from '../index'
+import { Provider } from 'react-redux'
 
 const POPUP_ROOT = 'popup-root'
 
@@ -7,7 +9,9 @@ const popupWrapper = (WrappedComponent: any, hide, props = {}) =>
   <Fragment>
     <div className="popup-overlay" onClick={!props.isCloseOnOverlayForbidden && hide} />
     <div className="popup-notification">
-      <WrappedComponent hide={hide} {...props} />
+      <Provider store={store}>
+        <WrappedComponent hide={hide} {...props} />
+      </Provider>
     </div>
   </Fragment>
 

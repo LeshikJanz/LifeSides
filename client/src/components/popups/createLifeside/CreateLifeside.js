@@ -1,12 +1,15 @@
 import type { Popup } from "types/popup"
 import type { DropdownItem } from 'types/common'
 import React from 'react'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
 import Field from 'components/field/Field'
 import popup from 'hocs/popup'
 import api from 'api/lifeside'
 import SuccessfulLifesidePopup from './SuccessfulLifesidePopup'
 import ColorDropdown from 'components/dropdowns/ColorDropdown'
 import { FLASK_COLORS } from 'constants/flaskColors'
+import { fetchLifesidesRequested } from 'components/popups/createLifeside/actions'
 
 type State = {
   isFormValid: DropdownItem,
@@ -15,7 +18,11 @@ type State = {
   error: string,
 }
 
-class CreateLifeside extends React.Component<Popup, State> {
+type Props = {
+  fetchLifesidesRequested: () => void,
+} & Popup
+
+class CreateLifeside extends React.Component<Props, State> {
   formRef: ?HTMLFormElement
 
   state = {
@@ -66,7 +73,10 @@ class CreateLifeside extends React.Component<Popup, State> {
       name: name.value,
       flaskColor: this.state.flaskColor.value,
     })
-      .then(this.props.hide().then(() => SuccessfulLifesidePopup.show({ name: name.value })))
+      .then(this.props.hide().then(() => {
+        this.props.fetchLifesidesRequested()
+        SuccessfulLifesidePopup.show({ name: name.value })
+      }))
       .catch(({ error }) => {
         if (error && error.message) {
           this.setState({ error: error.message })
@@ -123,4 +133,7 @@ class CreateLifeside extends React.Component<Popup, State> {
   }
 }
 
-export default popup(CreateLifeside)
+export default compose(
+  popup,
+  connect(null, ({ fetchLifesidesRequested })),
+)(CreateLifeside)

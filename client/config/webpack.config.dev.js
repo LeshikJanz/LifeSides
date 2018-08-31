@@ -88,6 +88,8 @@ module.exports = {
       components: path.resolve(__dirname, '../src/components'),
       modules: path.resolve(__dirname, '../src/modules'),
       hocs: path.resolve(__dirname, '../src/hocs'),
+      reducers: path.resolve(__dirname, '../src/reducers'),
+      sagas: path.resolve(__dirname, '../src/sagas'),
       types: path.resolve(__dirname, '../src/types'),
       utils: path.resolve(__dirname, '../src/utils'),
     },

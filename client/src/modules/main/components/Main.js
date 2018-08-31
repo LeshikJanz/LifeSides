@@ -4,40 +4,29 @@ import React from 'react'
 import Level from './Level'
 import Lifeside from './Lifeside'
 import '../styles/main.scss'
-import api from 'api/lifeside'
+import { connect } from 'react-redux'
+import { fetchLifesidesRequested } from 'components/popups/createLifeside/actions'
 
-type Props = {}
-
-type State = {
-  selectedLifeside?: Lifeside,
-  lifesides: Lifeside[],
+type Props = {
+  fetchLifesidesRequested: () => void,
 }
 
-class Main extends React.Component<Props, State> {
-  state = {
-    selectedLifeside: [],
-    lifesides: [],
+class Main extends React.Component<Props> {
+  componentDidMount () {
+    this.props.fetchLifesidesRequested()
   }
 
-  async componentDidMount() {
-    const lifesides = await api.fetchLifesides()
-    this.setState({ lifesides })
-  }
-
-  onChangeLifeside = () => {
-    
-  }
-
-  render() {
-    const { selectedLifeside, lifesides } = this.state
+  render () {
     return (
       <div className="main-container">
         <Level name="Здоровье" value="20" onChangeLifeside={this.onChangeLifeside} />
-        <Lifeside {...selectedLifeside} />
+        <Lifeside />
       </div>
     )
   }
 }
 
-export default Main
+export default connect(null,
+  ({ fetchLifesidesRequested }),
+)(Main)
 

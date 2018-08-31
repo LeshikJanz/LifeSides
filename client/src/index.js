@@ -7,12 +7,12 @@ import createSagaMiddleware from 'redux-saga'
 import './styles/main.scss'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
-import sagas from './sagas'
-import reducers from './reducers'
+import sagas from 'sagas'
+import reducers from 'reducers'
 
 const sagaMiddleware = createSagaMiddleware()
 
-const store = createStore(
+export const store = createStore(
   reducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(sagaMiddleware)
