@@ -6,17 +6,11 @@ import confirmHabitIcon from 'assets/svg/confirm-habit.svg'
 import './styles/habit.scss'
 import HabitBackSide from './HabitBackSide'
 
-type Props = {
-  text: string,
-  repeatCompletedCount: number,
-  repeatCount: number,
-}
-
 type State = {
   habitFrontSide: boolean,
 }
 
-class Habit extends React.Component<Props, State> {
+class Habit extends React.Component<Habit, State> {
   state = {
     habitFrontSide: true,
   }
@@ -24,8 +18,8 @@ class Habit extends React.Component<Props, State> {
   changeHabitSide = () =>
     this.setState(prevState => ({ habitFrontSide: !prevState.habitFrontSide }))
 
-  render() {
-    const { text, repeatCompletedCount, repeatCount } = this.props
+  render () {
+    const { name, repeatCompletedCount = 0, repeatCount } = this.props
     if (!this.state.habitFrontSide) {
       return (
         <HabitBackSide
@@ -37,7 +31,7 @@ class Habit extends React.Component<Props, State> {
     return (
       <div className="habit-wrapper">
         <div className="habit-text-block" onClick={this.changeHabitSide}>
-          {text}
+          {name}
         </div>
         <div className="habit-actions">
           <ReactSVG

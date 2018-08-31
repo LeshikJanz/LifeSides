@@ -14,6 +14,9 @@ export default {
     const accountId = localStorage.getItem("accountId")
     return request.get(`Accounts/${accountId}/Lifesides`)
       .then((lifesides: Lifeside[]) => lifesides)
-      .catch(handleError)
+  },
+  fetchLifesideById (lifesideId: string) {
+    return request.get(`Lifesides/${lifesideId}?filter={"include": "habits"}`)
+      .then((lifeside: Lifeside) => lifeside)
   }
 }

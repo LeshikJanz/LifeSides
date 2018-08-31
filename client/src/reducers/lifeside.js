@@ -6,7 +6,9 @@ import {
   fetchLifesidesRequested,
   fetchLifesidesSucceeded,
   fetchLifesidesFailed,
-  selectLifeside,
+  selectLifesideRequested,
+  selectLifesideSucceeded,
+  selectLifesideFailed,
 } from 'components/popups/createLifeside/actions'
 
 const initialState = {
@@ -27,13 +29,18 @@ export default createReducer({
     error,
     loading: false,
   }),
-  [selectLifeside]: (state: any, payload: Lifeside) => {
-    if (payload && payload.id) {
-      localStorage.setItem("prevSelectedLifesideId", payload.id)
-    }
-    return ({
-      ...state,
-      selected: payload,
-    })
-  }
+  [selectLifesideRequested]: (state: any, payload: string) => {
+    localStorage.setItem("prevSelectedLifesideId", payload)
+    return ({ ...state, loading: true })
+  },
+  [selectLifesideSucceeded]: (state: any, payload: Lifeside) => ({
+    ...state,
+    selected: payload,
+    loading: false,
+  }),
+  [selectLifesideFailed]: (state: any, error: Error) => ({
+    ...state,
+    error,
+    loading: false,
+  }),
 }, initialState);

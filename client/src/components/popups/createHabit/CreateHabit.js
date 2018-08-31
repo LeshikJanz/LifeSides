@@ -4,6 +4,11 @@ import Field from 'components/field/Field'
 import popup from 'hocs/popup'
 import api from 'api/habit'
 import SuccessfulHabitCreationPopup from './SuccessfulHabitCreationPopup'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+import {
+  selectLifesideRequested,
+} from 'components/popups/createLifeside/actions'
 
 type State = {
   isFormValid: boolean,
@@ -11,7 +16,12 @@ type State = {
   error: string,
 }
 
-class CreateHabit extends React.Component<Popup, State> {
+type Props = {
+  lifesideId: string,
+  selectLifesideRequested: (lifesideId: string) => void,
+} & Popup
+
+class CreateHabit extends React.Component<Props, State> {
   formRef: ?HTMLFormElement
 
   state = {
@@ -20,12 +30,12 @@ class CreateHabit extends React.Component<Popup, State> {
     error: "",
   }
 
-  componentDidMount() {
+  componentDidMount () {
     document.addEventListener("keyup", this.formValidation, true)
     document.addEventListener("mouseup", this.formValidation, true)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     document.removeEventListener("keyup", this.formValidation, true)
     document.removeEventListener("mouseup", this.formValidation, true)
   }
@@ -61,7 +71,10 @@ class CreateHabit extends React.Component<Popup, State> {
       name: name.value,
       repeatCount: repeatCount.value,
     }, this.props.lifesideId)
-      .then(this.props.hide().then(() => SuccessfulHabitCreationPopup.show({ name: name.value })))
+      .then(this.props.hide().then(() => {
+        this.props.selectLifesideRequested(this.props.lifesideId)
+        SuccessfulHabitCreationPopup.show({ name: name.value })
+      }))
       .catch(({ error }) => {
         if (error && error.message) {
           this.setState({ error: error.message })
@@ -69,7 +82,7 @@ class CreateHabit extends React.Component<Popup, State> {
       })
   }
 
-  render() {
+  render () {
     const { isFormValid, error } = this.state
     const { hide } = this.props
     return (
@@ -115,4 +128,8 @@ class CreateHabit extends React.Component<Popup, State> {
   }
 }
 
-export default popup(CreateHabit)
+export default compose(popup,
+  connect(({ lifeside }) => ({
+    lifesideId: lifeside.selected && lifeside.selected.id,
+  }), ({ selectLifesideRequested }))
+)(CreateHabit)

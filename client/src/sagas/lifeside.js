@@ -5,7 +5,9 @@ import {
   fetchLifesidesRequested,
   fetchLifesidesSucceeded,
   fetchLifesidesFailed,
-  selectLifeside,
+  selectLifesideRequested,
+  selectLifesideSucceeded,
+  selectLifesideFailed,
 } from 'components/popups/createLifeside/actions'
 
 export function* fetchLifesidesSaga () {
@@ -13,9 +15,7 @@ export function* fetchLifesidesSaga () {
     const lifesides = yield api.fetchLifesides()
     if (lifesides && lifesides[0]) {
       const prevSelectedLifesideId = localStorage.getItem("prevSelectedLifesideId")
-      const nextLifeside = lifesides.find(lifeside => lifeside.id === prevSelectedLifesideId)
-        || lifesides[0]
-      yield put(selectLifeside(nextLifeside))
+      yield put(selectLifesideRequested(prevSelectedLifesideId || lifesides[0].id))
     }
     yield put(fetchLifesidesSucceeded(lifesides))
   } catch (error) {
@@ -23,6 +23,16 @@ export function* fetchLifesidesSaga () {
   }
 }
 
+export function* selectLifesideSaga ({ payload }: { payload: string }) {
+  try {
+    const lifeside = yield api.fetchLifesideById(payload)
+    yield put(selectLifesideSucceeded(lifeside))
+  } catch (error) {
+    yield put(selectLifesideFailed(error))
+  }
+}
+
 export function* lifesideSaga () {
   yield takeLatest(fetchLifesidesRequested, fetchLifesidesSaga)
+  yield takeLatest(selectLifesideRequested, selectLifesideSaga)
 }

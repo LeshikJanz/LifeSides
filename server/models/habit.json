@@ -19,13 +19,18 @@
       "type": "string"
     },
     "repeatProgress": {
-      "type": "number"
+      "type": "number",
+      "default": 0
     },
     "creationDate": {
       "type": "date"
     },
     "lastRepetitionDate": {
       "type": "date"
+    },
+    "isCompleted": {
+      "type": "boolean",
+      "default": false
     }
   },
   "validations": [],

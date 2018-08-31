@@ -74,6 +74,7 @@ class CreateLifeside extends React.Component<Props, State> {
       flaskColor: this.state.flaskColor.value,
     })
       .then(this.props.hide().then(() => {
+        console.log("here")
         this.props.fetchLifesidesRequested()
         SuccessfulLifesidePopup.show({ name: name.value })
       }))
