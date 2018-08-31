@@ -1,4 +1,3 @@
-import type { Lifeside } from 'types/Lifeside'
 import { put, takeLatest } from 'redux-saga/effects'
 import api from 'api/lifeside'
 import {

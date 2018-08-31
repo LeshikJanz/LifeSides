@@ -10,6 +10,8 @@ import {
   selectLifesideRequested,
 } from 'components/popups/createLifeside/actions'
 
+const SUCCESSFULL_POPUP_SHOW_TIMES = 2
+
 type State = {
   isFormValid: boolean,
   nonValidFieldNames: Object,
@@ -19,6 +21,7 @@ type State = {
 type Props = {
   lifesideId: string,
   selectLifesideRequested: (lifesideId: string) => void,
+  habitsCount: number,
 } & Popup
 
 class CreateHabit extends React.Component<Props, State> {
@@ -73,7 +76,9 @@ class CreateHabit extends React.Component<Props, State> {
     }, this.props.lifesideId)
       .then(this.props.hide().then(() => {
         this.props.selectLifesideRequested(this.props.lifesideId)
-        SuccessfulHabitCreationPopup.show({ name: name.value })
+        if (this.props.habitsCount < SUCCESSFULL_POPUP_SHOW_TIMES) {
+          SuccessfulHabitCreationPopup.show({ name: name.value })
+        }
       }))
       .catch(({ error }) => {
         if (error && error.message) {
@@ -102,6 +107,7 @@ class CreateHabit extends React.Component<Props, State> {
             title="Краткое описание"
             type="text"
             placeholder="До 40 символов"
+            maxLength={40}
             required
           />
           <div className="inline-fields">
@@ -131,5 +137,6 @@ class CreateHabit extends React.Component<Props, State> {
 export default compose(popup,
   connect(({ lifeside }) => ({
     lifesideId: lifeside.selected && lifeside.selected.id,
+    habitsCount: lifeside.selected && lifeside.selected.habits && lifeside.selected.habits.length,
   }), ({ selectLifesideRequested }))
 )(CreateHabit)

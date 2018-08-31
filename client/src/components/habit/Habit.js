@@ -1,6 +1,5 @@
 // @flow
-
-import type { Lifeside } from 'types/Lifeside'
+import { Habit as HabitType } from 'types/Habit'
 import React from 'react'
 import ReactSVG from 'react-svg'
 import api from 'api/habit'
@@ -9,6 +8,7 @@ import { NotificationManager } from 'react-notifications'
 import './styles/habit.scss'
 import HabitBackSide from './HabitBackSide'
 import { NOTIFICATION_TIMEOUT, HABIT_COMPLETE_TIMEOUT } from 'constants/common'
+import HabitProgress from './HabitProgress'
 
 type State = {
   habitFrontSide: boolean,
@@ -17,7 +17,7 @@ type State = {
 type Props = {
   lifesideId: string,
   selectLifesideRequested: () => void,
-} & Habit
+} & HabitType
 
 class Habit extends React.Component<Props, State> {
   state = {
@@ -58,16 +58,17 @@ class Habit extends React.Component<Props, State> {
         </div>
         <div className="habit-actions">
           <ReactSVG
-            disabled={!isRepetitionAvailable}
+            disabled={lastRepetitionDate && !isRepetitionAvailable}
             className="confirm-button"
             src={confirmHabitIcon}
             onClick={this.completeOneTime}
           />
-          {
-            isRepetitionAvailable
-              ? <div className="habit-progress">{repeatProgress} / {repeatCount}</div>
-              : <div className="loading-bar" />
-          }
+          <HabitProgress
+            isRepetitionAvailable={isRepetitionAvailable}
+            lastRepetitionDate={lastRepetitionDate}
+            repeatProgress={repeatProgress}
+            repeatCount={repeatCount}
+          />
         </div>
       </div>
     )

@@ -14,12 +14,14 @@ type Props = {
   isError?: boolean,
   min?: number,
   max?: number,
+  minLength?: number,
+  maxLength?: number,
 }
 
 const Field =
   ({
      name, type = "text", title, value, onChange,
-     placeholder, errorText, isError, required, min, max,
+     placeholder, errorText, isError, required, min, max, minLength, maxLength,
    }: Props) => (
     <div className={`field ${isError ? "error" : ""}`}>
       <title>{title}</title>
@@ -32,6 +34,8 @@ const Field =
         required={required}
         min={min}
         max={max}
+        minLength={minLength}
+        maxLength={maxLength}
       />
       {
         errorText && isError && <span className="field-error">{errorText}</span>

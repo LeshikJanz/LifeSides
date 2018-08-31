@@ -2,7 +2,6 @@
 
 import type { Lifeside } from '../types/Lifeside'
 import { request } from './base'
-import handleError from 'utils/handleError'
 
 export default {
   createLifeside (lifeside: Lifeside) {
