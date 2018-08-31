@@ -7,6 +7,7 @@
     border-radius: 8px;
     padding: 6px 11px;
     margin: 10px;
+    border: 3px solid transparent;
   }
   &-text-block {
     font-family: Helvetica;
@@ -16,7 +17,7 @@
     font-size: 14px;
     color: #fff;
     border-right: 1px #979797 solid;
-    min-width: 160px;
+    width: 80%;
   }
   &-actions {
     margin-left: 10px;

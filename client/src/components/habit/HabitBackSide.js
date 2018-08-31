@@ -4,15 +4,18 @@ import React from 'react'
 import './styles/habitBackSide.scss'
 
 type Props = {
-  repeatCompletedCount: number,
+  repeatProgress: number,
   lastRepetitionTime: string,
   changeHabitSide: () => void,
 }
 
-const HabitBackSide = ({ repeatCompletedCount, lastRepetitionTime, changeHabitSide }: Props) => (
-  <div className="habit-back-side" onClick={changeHabitSide}>
-    <span>Выполнено повторений: { repeatCompletedCount }</span>
-    <span>Последнее в: { lastRepetitionTime }</span>
+const HabitBackSide = ({ repeatProgress, lastRepetitionDate, changeHabitSide }: Props) => (
+  <div className="habit-wrapper habit-back-side" onClick={changeHabitSide}>
+    <span>Выполнено повторений: { repeatProgress }</span>
+    {
+      lastRepetitionDate &&
+      <span>Последнее в: { lastRepetitionDate }</span>
+    }
   </div>
 )
 

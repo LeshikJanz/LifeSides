@@ -22,9 +22,10 @@
   }
   &-dropdown-list {
     position: absolute;
-    top: 15px;
-    left: 10px;
+    top: 20px;
+    right: 10px;
     padding: 0;
+    min-width: 150px;
 
     li {
       font-family: Lato;

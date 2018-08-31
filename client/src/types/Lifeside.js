@@ -10,4 +10,3 @@ export type Lifeside = {
   creationDate?: string,
   habits?: Habit[],
 }
-
