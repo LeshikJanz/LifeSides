@@ -22,6 +22,9 @@ module.exports = function (Habit) {
           repeatProgress: habit.repeatProgress + 1,
           lastRepetitionDate: new Date()
         }
+        if(updatedHabit.repeatProgress >= updatedHabit.repeatCount) {
+          updatedHabit.isCompleted = true
+        }
 
         Habit.updateAll(
           { id: habitId },
