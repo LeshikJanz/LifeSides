@@ -13,7 +13,7 @@ type Props = {
 }
 
 class HabitContainer extends React.Component<Props> {
-  render () {
+  render() {
     const { habits, lifesideId, selectLifesideRequested } = this.props
     if (!habits.length) {
       return (
@@ -43,5 +43,6 @@ class HabitContainer extends React.Component<Props> {
 
 export default connect(({ lifeside }) => ({
   lifesideId: lifeside.selected && lifeside.selected.id,
-  habits: (lifeside.selected && lifeside.selected.habits) || [],
+  habits: (lifeside.selected && lifeside.selected.habits
+    && lifeside.selected.habits.filter(habit => !habit.isCompleted)) || [],
 }), ({ selectLifesideRequested }))(HabitContainer)

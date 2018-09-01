@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (Habit) {
-  Habit.observe('before save', function updateTimestamp (ctx, next) {
+  Habit.observe('before save', function updateTimestamp(ctx, next) {
     if (ctx.instance) {
       if (!ctx.instance.creationDate) {
         ctx.instance.creationDate = new Date();
@@ -16,13 +16,12 @@ module.exports = function (Habit) {
   Habit.completeOneTime = function (habitId, cb) {
     Habit.findById(habitId,
       function (err, habit) {
-
         const updatedHabit = {
           ...habit,
           repeatProgress: habit.repeatProgress + 1,
           lastRepetitionDate: new Date()
         }
-        if(updatedHabit.repeatProgress >= updatedHabit.repeatCount) {
+        if (updatedHabit.__data.repeatProgress >= updatedHabit.__data.repeatCount) {
           updatedHabit.isCompleted = true
         }
 

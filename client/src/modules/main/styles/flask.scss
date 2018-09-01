@@ -16,6 +16,15 @@
       margin-bottom: 20px;
     }
   }
+  &-svg {
+    text {
+      font-family: Lato;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      text-align: center;
+      width: 100%;
+    }
+  }
 }
 
 @media (max-width: 1200px) {
