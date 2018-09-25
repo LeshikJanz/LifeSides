@@ -10,7 +10,7 @@ type Props = {
   placeholder?: string,
   onChange?: (e: { target: any } & Event) => void,
   required?: boolean,
-  errorText?: string,
+  errorText?: string[] | string,
   isError?: boolean,
   min?: number,
   max?: number,
@@ -20,27 +20,33 @@ type Props = {
 
 const Field =
   ({
-     name, type = "text", title, value, onChange,
-     placeholder, errorText, isError, required, min, max, minLength, maxLength,
-   }: Props) => (
-    <div className={`field ${isError ? "error" : ""}`}>
-      <title>{title}</title>
-      <input
-        name={name}
-        type={type}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        required={required}
-        min={min}
-        max={max}
-        minLength={minLength}
-        maxLength={maxLength}
-      />
-      {
-        errorText && isError && <span className="field-error">{errorText}</span>
-      }
-    </div>
-  )
+    name, type = "text", title, value, onChange,
+    placeholder, errorText, isError, required, min, max, minLength, maxLength,
+  }: Props) => {
+      console.log("errorText")
+      console.log(errorText)
+    const errorMessage = Array.isArray(errorText) ? errorText.reduce((res, el) => `${el}. ${res}`, '')
+      : errorText
+    return (
+      <div className={`field ${isError ? "error" : ""}`}>
+        <title>{title}</title>
+        <input
+          name={name}
+          type={type}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          required={required}
+          min={min}
+          max={max}
+          minLength={minLength}
+          maxLength={maxLength}
+        />
+        {
+          errorMessage && isError && <span className="field-error">{errorMessage}</span>
+        }
+      </div>
+    )
+  }
 
 export default Field

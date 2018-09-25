@@ -15,7 +15,10 @@ type State = {
   notificationMinute: ?DropdownItem,
   isFormValid: boolean,
   nonValidFieldNames: Object,
-  error: string,
+  errors: {
+    username?: string,
+    email?: string,
+  },
 }
 
 class RegistrationPopup extends React.Component<Popup, State> {
@@ -26,22 +29,22 @@ class RegistrationPopup extends React.Component<Popup, State> {
     notificationMinute: null,
     isFormValid: false,
     nonValidFieldNames: {},
-    error: "",
+    errors: {},
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.formRef.addEventListener("blur", this.formValidation, true)
     document.addEventListener("keyup", this.checkIfFieldBecomeValid, true)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.formRef.removeEventListener("blur", this.formValidation, true)
     document.removeEventListener("keyup", this.checkIfFieldBecomeValid, true)
   }
 
   handleSubmit = (e: { target: any } & Event) => {
     e.preventDefault()
-    this.setState({ error: "" })
+    this.setState({ errors: {} })
     const { email, username, password } = e.target.elements
     const { notificationHour, notificationMinute } = this.state
     api.createAccount({
@@ -53,8 +56,12 @@ class RegistrationPopup extends React.Component<Popup, State> {
     })
       .then(() => this.props.hide().then(SuccessfulRegistrationPopup.show))
       .catch(({ error }) => {
-        if (error && error.message) {
-          this.setState({ error: error.message })
+        if (error && error.details && error.details.messages) {
+          this.setState({
+            errors: error.details.messages,
+            nonValidFieldNames: Object.keys(error.details.messages)
+              .reduce((res, el) => ({ ...res, [el]: true }), {})
+          })
         }
       })
   }
@@ -109,11 +116,11 @@ class RegistrationPopup extends React.Component<Popup, State> {
     }
   }
 
-  render () {
+  render() {
     const { hide } = this.props
     const {
       notificationHour, notificationMinute,
-      isFormValid, nonValidFieldNames, error,
+      isFormValid, nonValidFieldNames, errors,
     } = this.state
     return (
       <div className="popup-central registration-wrapper popup-container">
@@ -135,7 +142,7 @@ class RegistrationPopup extends React.Component<Popup, State> {
             type="email"
             placeholder="email"
             required
-            errorText="Введен некорректный email"
+            errorText={errors.email || "Неверный email"}
             isError={nonValidFieldNames["email"]}
           />
           <Field
@@ -143,8 +150,8 @@ class RegistrationPopup extends React.Component<Popup, State> {
             title="Имя пользователя*"
             placeholder="имя пользователя"
             required
-            errorText="Введено некорректное имя пользователя"
-            isError={nonValidFieldNames["name"]}
+            errorText={errors.username || "Неверное имя пользователя"}
+            isError={nonValidFieldNames["username"]}
           />
           <div className="field">
             <title>Получать уведомления в ( чч:мм )</title>
@@ -175,7 +182,7 @@ class RegistrationPopup extends React.Component<Popup, State> {
             title="Пароль*"
             placeholder="пароль"
             required
-            errorText=""
+            errorText={errors.password}
             isError={nonValidFieldNames["password"]}
           />
           <Field
@@ -187,9 +194,6 @@ class RegistrationPopup extends React.Component<Popup, State> {
             errorText="Пароли не совпадают"
             isError={nonValidFieldNames["submitPassword"]}
           />
-          {
-            error && <span className="error">{error}</span>
-          }
           <div className="form-actions">
             <button className="green gta" disabled={!isFormValid}>
               Продолжить
