@@ -2,7 +2,7 @@
  * Initial http configuration
  */
 const config = {
-  baseUrl: 'http://localhost:3000/api/'
+  baseUrl: 'http://localhost:3001/api/'
 };
 
 /**

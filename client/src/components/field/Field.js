@@ -23,8 +23,6 @@ const Field =
     name, type = "text", title, value, onChange,
     placeholder, errorText, isError, required, min, max, minLength, maxLength,
   }: Props) => {
-      console.log("errorText")
-      console.log(errorText)
     const errorMessage = Array.isArray(errorText) ? errorText.reduce((res, el) => `${el}. ${res}`, '')
       : errorText
     return (
