@@ -1,6 +1,7 @@
 // @flow
 
-import React from 'react'
+import React from "react";
+import isNumericInputValue from "utils/isNumericInputValue";
 
 type Props = {
   name?: string,
@@ -15,16 +16,39 @@ type Props = {
   min?: number,
   max?: number,
   minLength?: number,
-  maxLength?: number,
-}
+  maxLength?: number
+};
 
-const Field =
-  ({
-    name, type = "text", title, value, onChange,
-    placeholder, errorText, isError, required, min, max, minLength, maxLength,
-  }: Props) => {
-    const errorMessage = Array.isArray(errorText) ? errorText.reduce((res, el) => `${el}. ${res}`, '')
-      : errorText
+class Field extends React.Component<Props> {
+  handleChange = (e: Event) => {
+    console.log("this.props")
+    console.log(this.props)
+    if (this.props.type === "number") {
+      console.log("isNumericInputValue(e)")
+      console.log(isNumericInputValue(e))
+      isNumericInputValue(e) && this.props.onChange(e);
+    }
+    this.props.onChange(e);
+  };
+
+  render() {
+    const {
+      name,
+      type = "text",
+      title,
+      value,
+      placeholder,
+      errorText,
+      isError,
+      required,
+      min,
+      max,
+      minLength,
+      maxLength
+    } = this.props;
+    const errorMessage = Array.isArray(errorText)
+      ? errorText.reduce((res, el) => `${el}. ${res}`, "")
+      : errorText;
     return (
       <div className={`field ${isError ? "error" : ""}`}>
         <title>{title}</title>
@@ -32,7 +56,7 @@ const Field =
           name={name}
           type={type}
           value={value}
-          onChange={onChange}
+          onChange={this.handleChange}
           placeholder={placeholder}
           required={required}
           min={min}
@@ -40,11 +64,12 @@ const Field =
           minLength={minLength}
           maxLength={maxLength}
         />
-        {
-          errorMessage && isError && <span className="field-error">{errorMessage}</span>
-        }
+        {errorMessage && isError && (
+          <span className="field-error">{errorMessage}</span>
+        )}
       </div>
-    )
+    );
   }
+}
 
-export default Field
+export default Field;
