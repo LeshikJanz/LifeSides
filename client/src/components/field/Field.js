@@ -1,6 +1,7 @@
 // @flow
 
-import React from 'react'
+import React from "react";
+import isNumericInputValue from "utils/isNumericInputValue";
 
 type Props = {
   name?: string,
@@ -15,26 +16,50 @@ type Props = {
   min?: number,
   max?: number,
   minLength?: number,
-  maxLength?: number,
-}
+  maxLength?: number
+};
 
-const Field =
-  ({
-    name, type = "text", title, value, onChange,
-    placeholder, errorText, isError, required, min, max, minLength, maxLength,
-  }: Props) => {
-      console.log("errorText")
-      console.log(errorText)
-    const errorMessage = Array.isArray(errorText) ? errorText.reduce((res, el) => `${el}. ${res}`, '')
-      : errorText
+class Field extends React.Component<Props> {
+  state = {
+    value: ""
+  };
+
+  handleChange = (e: Event) => {
+    console.log("handleChange");
+    if (this.props.type === "number") {
+      console.log("isNumericInputValue(e)");
+      console.log(isNumericInputValue(e));
+      isNumericInputValue(e) && this.setState({ value: e.target.value });
+    }
+    this.setState({ value: e.target.value });
+  };
+
+  render() {
+    const {
+      name,
+      type = "text",
+      title,
+      value,
+      placeholder,
+      errorText,
+      isError,
+      required,
+      min,
+      max,
+      minLength,
+      maxLength
+    } = this.props;
+    const errorMessage = Array.isArray(errorText)
+      ? errorText.reduce((res, el) => `${el}. ${res}`, "")
+      : errorText;
     return (
       <div className={`field ${isError ? "error" : ""}`}>
         <title>{title}</title>
         <input
           name={name}
           type={type}
-          value={value}
-          onChange={onChange}
+          value={this.state.value}
+          onChange={this.handleChange}
           placeholder={placeholder}
           required={required}
           min={min}
@@ -42,11 +67,12 @@ const Field =
           minLength={minLength}
           maxLength={maxLength}
         />
-        {
-          errorMessage && isError && <span className="field-error">{errorMessage}</span>
-        }
+        {errorMessage && isError && (
+          <span className="field-error">{errorMessage}</span>
+        )}
       </div>
-    )
+    );
   }
+}
 
-export default Field
+export default Field;

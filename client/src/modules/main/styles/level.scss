@@ -13,7 +13,7 @@
     }
     hr {
       height: 3px;
-      background-color: #5C931B;
+      background-color: #5c931b;
       border: none;
     }
   }
@@ -39,9 +39,9 @@
       list-style-type: none;
       cursor: pointer;
       width: 100%;
-      border-bottom: 1px solid rgba(128, 128, 128, .2);
-      border-left: 1px solid rgba(128, 128, 128, .2);
-      border-right: 1px solid rgba(128, 128, 128, .2);
+      border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+      border-left: 1px solid rgba(128, 128, 128, 0.2);
+      border-right: 1px solid rgba(128, 128, 128, 0.2);
       &:hover {
         background-color: #f6f7f9;
       }

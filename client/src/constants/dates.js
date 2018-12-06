@@ -12,6 +12,7 @@ export const MONTH_NAMES = [
   "Сентябрь",
   "Октябрь",
   "Ноябрь",
+  "Декабрь",
 ]
 
 export const MONTH_NAMES_COUNTED = [
@@ -26,4 +27,5 @@ export const MONTH_NAMES_COUNTED = [
   "Сентября",
   "Октября",
   "Ноября",
+  "Декабря",
 ]

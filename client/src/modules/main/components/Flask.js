@@ -19,14 +19,9 @@ class Flask extends React.Component<Props> {
 
   componentDidMount() {
     setTimeout(this.initFlask, 1000)
-
-    console.log(this.flaskPaths)
-    console.log(this.flaskTexts)
   }
 
   componentDidUpdate() {
-    console.log(this.flaskPaths)
-    console.log(this.flaskTexts)
     this.fillFlask()
     if (this.flaskPaths.length || this.flaskTexts.length) return
     this.flaskPaths = document.querySelectorAll("svg.flask-svg path")
@@ -46,8 +41,6 @@ class Flask extends React.Component<Props> {
   }
 
   fillFlaskPathText = (pathNumber: number, text: string) => {
-    console.log("pathNumber")
-    console.log(pathNumber)
     this.flaskPaths[pathNumber].style.fill = this.props.flaskColor
     this.flaskTexts[pathNumber].style.fill = "#fff"
     this.flaskTexts[pathNumber].firstChild.textContent = `• ${text}`

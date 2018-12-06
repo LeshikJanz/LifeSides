@@ -110,6 +110,14 @@ class CreateHabit extends React.Component<Props, State> {
             maxLength={40}
             required
           />
+          <Field
+            name="repeatDelay"
+            title="Повторять каждые (мин)"
+            type="number"
+            placeholder="минуты"
+            maxLength={20}
+            required
+          />
           <div className="inline-fields">
             <Field
               name="repeatCount"
