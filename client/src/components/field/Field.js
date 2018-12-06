@@ -20,15 +20,18 @@ type Props = {
 };
 
 class Field extends React.Component<Props> {
+  state = {
+    value: ""
+  };
+
   handleChange = (e: Event) => {
-    console.log("this.props")
-    console.log(this.props)
+    console.log("handleChange");
     if (this.props.type === "number") {
-      console.log("isNumericInputValue(e)")
-      console.log(isNumericInputValue(e))
-      isNumericInputValue(e) && this.props.onChange(e);
+      console.log("isNumericInputValue(e)");
+      console.log(isNumericInputValue(e));
+      isNumericInputValue(e) && this.setState({ value: e.target.value });
     }
-    this.props.onChange(e);
+    this.setState({ value: e.target.value });
   };
 
   render() {
@@ -55,7 +58,7 @@ class Field extends React.Component<Props> {
         <input
           name={name}
           type={type}
-          value={value}
+          value={this.state.value}
           onChange={this.handleChange}
           placeholder={placeholder}
           required={required}
